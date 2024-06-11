@@ -6,6 +6,6 @@ const Router = express.Router();
 const indexController = new IndexController();
 
 Router.get('/' , indexController.viewIndex)
-
+Router.get('/Registro' , indexController.viewSignUp)
 
 export default Router

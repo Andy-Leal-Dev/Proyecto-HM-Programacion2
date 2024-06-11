@@ -9,7 +9,7 @@ class Index {
     }
     //Vista de Registro
     viewSignUp(req,res){
-
+        res.render("SignUp.ejs");
     }
 }
 

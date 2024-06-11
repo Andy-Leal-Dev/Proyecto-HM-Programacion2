@@ -5,5 +5,6 @@ const Router = express.Router();
 //Instancia de los metodos de la clase Index
 const viewController = new ViewController();
 
+Router.get('/Home',viewController.viewHome)
 
 export default  Router;
