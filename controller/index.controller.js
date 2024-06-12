@@ -11,6 +11,10 @@ class Index {
     viewSignUp(req,res){
         res.render("SignUp.ejs");
     }
+
+    viewHome(req,res){
+        res.render("home.ejs")
+    }
 }
 
 export default Index

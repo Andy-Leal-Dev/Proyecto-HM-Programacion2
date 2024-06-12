@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheet/SignUp.css" rel="stylesheet" type="text/css">
+    <title>Esclak</title>
+</head>
+<body>
+
+    
+    <header class="header">
+
+            <h1>LOGO</h1>
+            <nav class="navbar">
+                            
+            <a href="/">Home</a>
+            <a href="Login">Iniciar Sesion</a>
+        
+            </nav>
+    </header>
+    <form> 
+        <h2>Registro</h2>
+        <label for="name">Nombre</label>
+        <input type="text" id="name">
+
+        <label for="lastName">Apellido</label>
+        <input type="text" id="lastName">
+
+        <label for="DNI">Cedula</label>
+        <input type="number" id="DNI">
+
+        <label for="select-genero">Genero</label>
+        <select name="Genero" id="select-genero">
+          <option value="">-- Escojer opcion --</option>
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+        </select>
+
+        <label for="username">Usuario</label>
+        <input type="text" id="username">
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password">
+
+        <label for="passwordOut">Confirmar contraseña</label>
+        <input type="text" id="passwordOut">
+
+        <button type="submit" class="btn-login">Registrar</button>
+    </form>
+</body>
+</html>
