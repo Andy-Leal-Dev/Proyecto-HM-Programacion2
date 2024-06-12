@@ -3,9 +3,7 @@ class Views{
 
     }
 
-    viewHome(req,res){
-        res.render("home.ejs");
-    }
+    
 }
 
 export default Views
