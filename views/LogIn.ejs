@@ -7,20 +7,15 @@
     <title>Esclak</title>
 </head>
 <body>
-
-        
     <header class="header">
-
         <h1>LOGO</h1>
-        <nav class="navbar">
-                        
-        <a href="/">Home</a>
+        <nav class="navbar">              
+        <a href="/">Inicio</a>
         <a href="SignUp">Registro</a>
-    
         </nav>
     </header>
 
-    <form> 
+    <form id="form-login"> 
         <h2>Inicio de Sesion</h2>
         <label for="username">Usuario</label>
         <input type="text" id="username">
@@ -28,11 +23,14 @@
         <label for="password">Contraseña</label>
         <input type="password" id="password">
 
-        <button type="submit" class="btn-login">Enviar</button>
+        <button type="button" class="btn-login">Enviar</button>
         
         <div class="forget-password">
             <a href="SignUp"><p>Registrarte</p></a>
         </div>
     </form>
+
+
+    <script src="/js/login.js"></script>
 </body>
 </html>
