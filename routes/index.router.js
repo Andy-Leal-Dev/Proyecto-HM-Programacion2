@@ -9,6 +9,8 @@ const indexController = new IndexController();
 Router.get('/', indexController.viewIndex)
 //Obtiene la vista para iniciar Secion
 Router.get('/Login' , indexController.viewLogin)
+//Cierra sesion y envia a la pagina principal
+Router.get('/LogOut' , indexController.logOut)
 //Obtiene la visar para registrarse
 Router.get('/SignUp' , indexController.viewSignUp)
 //Api. Envia los datos para regitrarse

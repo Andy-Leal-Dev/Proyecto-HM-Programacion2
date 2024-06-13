@@ -22,22 +22,22 @@ class UserModels{
             [nombre, apellido, cedula, genero, usuario, password, cargo],
             (err, resultados) => {
               if (err) reject(err);
-              else resolve({ insertId: resultados.insertId, cargo: cargo });
+              else resolve({ id: resultados.insertId, cargo: cargo });
             }
           );
         });
       }
-
-      //Peticion para obtener todos los usuarios (Solo lo puede obtener el admin)
-    getUsersModel(){
+      //Peticion para obtener todos los usuarios que aparecen en la lista (Solo lo puede obtener el admin)
+      getUsersModel(){
         return new Promise((resolve, reject) => {
-        Conexion.query(`select * from usuario`,
+        Conexion.query(`select nombre, apellido, cedula, cargo from usuario`,
             (err, resultados) => {
                 if (err) reject(err);
                 else resolve(resultados);
             });
         });
     }
+    //Despues de comentar y subir esto me monto es la busqueda de usuarios
 }
 
 export default UserModels;

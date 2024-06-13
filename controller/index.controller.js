@@ -24,6 +24,11 @@ class Index {
     viewIndex(req,res){
         res.render("Index.ejs");
     }
+    //Este metodo no es una vista, este metodo es para Cerrar sesion y borrar el JWT de las Cookies
+    logOut(req,res){
+        res.clearCookie('jwt'); // Elimina la cookie 'jwt'
+        res.redirect('/')// Te redirige a la pagina principal
+    }
 
     //Controlador pra inicar sesion
    logInUser(req, res){
@@ -38,8 +43,8 @@ class Index {
             //Si la contraseña es correcta se va a crear el JWT
             if(MachtPassword){
                 const jwt = generateTokens(responseUser[0].id,responseUser[0].cargo)
-                res.json(jwt);//se evia al ejs. Nota: esta parte tengo que pasarla como Cookie.
-          
+                res.cookie("jwt",`${jwt}`,{httpOnly: true, secure: true,   sameSite: 'strict' });//se evia al ejs. Nota: esta parte tengo que pasarla como Cookie.
+                res.status(200).send('Login successful');
             } else{ //Si la contrseña no es correcta hay que mostrar algo en pantalla
                 console.log("no coninciden");
             }
@@ -56,16 +61,15 @@ class Index {
         const{nombre,apellido,cedula,genero,usuario,password,cargo}= req.body
         //Encripto la contraseña usando la funcion HashPassword
         const passwordHashed = await hashPassword(password);
-
         //Uso el modelo SignUP Para insertar todo los datos con la constraseña encriptada y creo la cuenta
         this.userModel.signUpUserModel(nombre,apellido,cedula,genero,usuario,passwordHashed,cargo)
         .then(responseUser=>{
-            //genero el Json Web Token que tiene el cargo y el id del usuario
             const jwt = generateTokens(responseUser[0].id,responseUser[0].cargo) //Nota: esto lo hacemos para manejar solo la informacion necesaria en los ejs y para validar el acceso de los doctores y secretarias a ciertas rutas
-            res.json(jwt);//se evia al ejs. Nota: esta parte tengo que pasarla como Cookie.
+            res.cookie("JWT",jwt,{httpOnly: true, secure: true,   sameSite: 'strict' });
+            res.status(200).send('Login successful');
         })
         .catch(err => {
-        return res.status(500).send("Error Creando el usuario");
+            return res.status(200).send(err);
         })
 
     }
