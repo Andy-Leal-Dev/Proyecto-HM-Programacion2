@@ -1,0 +1,44 @@
+<%- include("./template/header"); %>
+
+<div class="col-8 ">
+    <h1 class="text-dark mb-5">Lista del Personal</h1>
+    <div class="d-flex div-search-options">
+        <div class="d-flex div-search ">
+            <input type="text" placeholder="Cedula del Personal">
+            <button class="btn shadow-none">Buscar</button>
+        </div>
+       <div>
+        <a href="" class="btn btn-primary mb-2">Agregar</a>
+        <% if (Rol === 0) { %>
+            <a href="" class="btn btn-danger mb-2" >Eliminar</a>
+          <% } %>
+
+       </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Telefono</th>
+                <th>Cargo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% usuarios.forEach(usuario => { %>
+                <tr>
+                    <td><%= usuario.nombre %></td>
+                    <td><%= usuario.apellido %></td>
+                    <td><%= usuario.cedula %></td>
+                    <td><%= usuario.telefono %></td>
+                    <td><%= usuario.cargo %></td>
+                    <td>
+                        <a href="" class="btn btn-primary mb-2">Ver</a>
+                    </td>
+                </tr>
+                <% })%>
+        </tbody>
+    </table>
+</div>

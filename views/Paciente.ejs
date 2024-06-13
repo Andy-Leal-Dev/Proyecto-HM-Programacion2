@@ -1,0 +1,45 @@
+<%- include("./template/header"); %>
+
+<div class="col-8 ">
+    <h1 class="text-dark mb-5">Lista de Pacientes</h1>
+    <div class="d-flex div-search-options">
+        <div class="d-flex div-search ">
+            <input type="text" id="input-dni" placeholder="Cedula del Paciente">
+            <button class="btn shadow-none btn-search-dni">Buscar</button>
+        </div>
+       <div>
+        <a href="" class="btn btn-primary mb-2">Agregar</a>
+        <% if (Rol === 0) { %>
+            <a href="" class="btn btn-danger mb-2" >Eliminar</a>
+        <% } %>
+
+       </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Telefono</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pacientes.forEach(paciente => { %>
+                <tr>
+                    <td><%= paciente.nombres %></td>
+                    <td><%= paciente.apellidos %></td>
+                    <td><%= paciente.dni %></td>
+                    <td><%= paciente.telefono %></td>
+                    <td>
+                        <a href="" class="btn btn-primary mb-2">Ver</a>
+                    </td>
+                </tr>
+                <% })%>
+            
+        </tbody>
+    </table>
+
+    <script src="/js/home.js"></script>
+</div>
