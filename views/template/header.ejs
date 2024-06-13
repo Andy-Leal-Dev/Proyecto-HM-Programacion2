@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="/stylesheet/Home.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheet/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header class="header">
+        <h1>LOGO</h1>
+        <nav class="navbar">              
+        <a href="/Perfil">Perfil</a>
+        <a href="/Paciente">Pacientes</a>
+        <% if (Rol === 0) { %>
+            <a href="/Usuario">Personal</a>
+          <% } %>
+        <a href="/LogOut" >Cerrar Sesion</a>
+        </nav>
+    </header>
+
+</body>
+</html>
