@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import IndexRouter from "./routes/index.router.js";
 import ViewRouter from "./routes/views.router.js";
 import ApiRouter from "./routes/api.router.js"
+import cookieParser from "cookie-parser";
 
 const App = express();
 
@@ -22,6 +23,7 @@ App.use(morgan('dev'))
 App.use(express.json());
 App.use(express.urlencoded({extended: true}));
 App.use(bodyParser.json());
+App.use(cookieParser());//Usa la libreria CookieParser para reconocer las cookies y obtener las
 
 //Utiliza las direcciones que se establecen en index.router
 App.use('/',IndexRouter);
