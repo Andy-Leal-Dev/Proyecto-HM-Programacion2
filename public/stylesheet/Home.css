@@ -118,3 +118,15 @@ color: white;
     cursor: pointer;
     outline: none;
 }
+.div-search-check{
+    gap: 15px;
+}
+
+.div-check-options{
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 25px;
+}

@@ -29,16 +29,19 @@ class Views{
 
     //Vista de Paciente Buscado. Esta vista mostrara unicamente el o los paciente que se quiere buscar
     searchPaciente(req,res){
-        const token = req.cookies.jwt;//Obtengo el JWt de las cookies
-        const Rol = VerifyTokenConvertId(token);//Convierto ese JWT para obtener el rol de Usuario y asi validar sus vistas
-        //Le pido al modelo que me busque los paciente por la cedula(dni). 
-        this.pacienteModel.getByDniModel(req.params.dni) //Pido(Requiero) el dni(Cedula) por parametros en al url para su busqueda
-        .then(responsePaciente=>{ //En el caso de conseguir el paciente o no se renderisa(Muestra) la vista de Paciente.ejs con el resultado
-           res.render("Paciente.ejs",{
-            Rol,  //Le paso a la vista el rol para validar lo que puede ver y usar
-            pacientes:responsePaciente //Le paso a la vista todos los pacientes obtenidos en la base de datos
-        });
-        })
+        const token = req.cookies.jwt;
+        
+        const Rol = VerifyTokenConvertId(token);
+       
+        console.log(req.params.dni,req.params.tipo); 
+        this.pacienteModel.getByDniModel(req.params.dni,req.params.tipo) 
+        .then(async (responsePaciente) => {
+            console.log(responsePaciente);
+            res.render("Paciente.ejs", {
+              Rol,
+              pacientes: responsePaciente
+            });
+          })
         .catch(err => {
             return res.status(500).send(err);//En tal caso dira qu hay un error
         })
@@ -66,6 +69,8 @@ class Views{
         const Rol = VerifyTokenConvertId(token);
         res.render("Profile.ejs",{Rol});
     }
+
+
     
 }
 

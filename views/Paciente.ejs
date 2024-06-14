@@ -3,10 +3,20 @@
 <div class="col-8 ">
     <h1 class="text-dark mb-5">Lista de Pacientes</h1>
     <div class="d-flex div-search-options">
+       <div class="d-flex div-search-check">
         <div class="d-flex div-search ">
             <input type="text" id="input-dni" placeholder="Cedula del Paciente">
             <button class="btn shadow-none btn-search-dni">Buscar</button>
         </div>
+       <div class="div-check-options">
+        <input type="checkbox" name="" id="CheckAdulto">
+        <span>Adultos</span>
+        <input type="checkbox" name="" id="CheckPediatrico">
+        <span>Pediatrico</span>
+       </div>
+       </div>
+        
+        
        <div>
         <a href="" class="btn btn-primary mb-2">Agregar</a>
         <% if (Rol === 0) { %>
@@ -20,24 +30,33 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Edad</th>
                 <th>Cedula</th>
                 <th>Telefono</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <% pacientes.forEach(paciente => { %>
+            <% if (pacientes.length > 0) { %>
+                <% pacientes.forEach(paciente => { %>
+                    <tr>
+                        <td><%= paciente.Nombres %></td>
+                        <td><%= paciente.Apellidos %></td>
+                        <td><%= paciente.Edad %></td>
+                        <td><%= paciente.Cedula %></td>
+                        <td><%= paciente.Telefono %></td>
+                        <td>
+                            <a href="" class="btn btn-primary mb-2">Ver</a>
+                        </td>
+                    </tr>
+                    <% })%>
+                
+            <% } else { %>
                 <tr>
-                    <td><%= paciente.nombres %></td>
-                    <td><%= paciente.apellidos %></td>
-                    <td><%= paciente.dni %></td>
-                    <td><%= paciente.telefono %></td>
-                    <td>
-                        <a href="" class="btn btn-primary mb-2">Ver</a>
-                    </td>
+                    <td colspan="2">No se encontraron pacientes</td>
                 </tr>
-                <% })%>
-            
+            <% } %>
+          
         </tbody>
     </table>
 

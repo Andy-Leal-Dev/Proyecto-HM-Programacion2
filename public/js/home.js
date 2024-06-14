@@ -1,4 +1,32 @@
+
+const CheckAdulto = document.getElementById('CheckAdulto');
+const CheckPediatrico = document.getElementById('CheckPediatrico');
+let tipo;
+
+CheckAdulto.addEventListener('change', function() {
+    if (this.checked) {
+        CheckPediatrico.checked = false;
+        tipo = 1
+      }
+  });
+  
+  CheckPediatrico.addEventListener('change', function() {
+    if (this.checked) {
+        CheckAdulto.checked = false;
+        tipo = 2;
+      }
+  });
+
+
+
 document.querySelector('.btn-search-dni').addEventListener('click', async () => {
-    const DNI = document.getElementById('input-dni').value; //Obtengo el valir de la cedula para la busqueda
-    window.location.href = `/SearchPaciente/${DNI}`//Ejecuto la url de busqueda de paciente por su Cedula
+  const DNI = document.getElementById('input-dni').value;
+     if( isNaN(DNI)){
+      console.log("ingrasa los datos bien");
+     } else{
+      console.log(tipo);
+        window.location.href = `/SearchPaciente/${tipo}/${DNI}`
+     }
+
 });
+
