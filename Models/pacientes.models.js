@@ -1,10 +1,11 @@
 import Conexion from "../config/conexion.db.js";
+import { generarCodigo } from "../config/generateCodes.js";
 
 class PacienteModels{
     constructor(){
        
     }
-    //Modelo para obtener los Pacientes que vana a aprecer en las listas
+    //Modelo para obtener los Pacientes que van a aprecer en las listas
     getPacientesModel(){
         return new Promise((resolve, reject) => {
         Conexion.query(`select id, Nombres,Apellidos,Cedula,Edad,Telefono from paciente`,
@@ -14,6 +15,24 @@ class PacienteModels{
             });
         });
     }
+
+    //Obtener todos los datos de paciente por su id
+    getPacienteByDniModel(id){
+      return new Promise((resolve, reject) => {
+      Conexion.query(`SELECT * FROM paciente WHERE id = ?`,[id],
+          (err, resultados) => {
+              if (err) {
+                reject(err)
+              }
+              else {
+                resolve(resultados)
+              }
+          });
+          
+      });
+
+  
+  }
     //Modelo para Buscar los Pacientes que van a aprecer en las listas
     getByDniModel(dni,tipo){
         return new Promise((resolve, reject) => {
@@ -24,7 +43,6 @@ class PacienteModels{
                 }
                 else {
                   resolve(resultados)
-                  console.log(resultados[0]);
                 }
             });
             
@@ -33,15 +51,32 @@ class PacienteModels{
     
     }
     //envio de datos a la BD del registro para crear la cuenta
-    addNewPacienteModel(tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo) {
+    addNewPacienteModel(tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo, 
+      Amigdalitis, Asma, Bronquitis, Cancer, Diabetes, Influenza, Enf_Neuromentales, Cardio_Vasculares, Rubeola, Sarampion, Traumatismos, Neumania, Familiar_Artritis, Familiar_Asma, 
+      Familiar_Cancer, Familiar_CVascular,Familiar_Diabetes, Familiar_Enf_Digestivas, Familiar_Enf_Neuromentales) {
         return new Promise((resolve, reject) => {
           if(tipo == 1){
             Conexion.query(
               `INSERT INTO paciente (tipo_paciente, Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
               [tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco],
               (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados);
+                let codeHc = generarCodigo();
+                let id_paciente = resultados.insertId
+                Conexion.query(
+                  `INSERT INTO historiasclinicas (id_paciente,code_hc) VALUES (?, ?)`,
+                  [id_paciente,codeHc],
+                  (err, resultados) => {
+                    Conexion.query(
+                      `INSERT INTO antecedentes (id_paciente, Amigdalitis, Asma, Bronquitis, Cancer, Diabetes, Influenza, Enf_Neuromentales, Cardio_Vasculares, Rubeola, Sarampion, Traumatismos, Neumania, Familiar_Artritis, Familiar_Asma, Familiar_Cancer, Familiar_CVascular,Familiar_Diabetes, Familiar_Enf_Digestivas, Familiar_Enf_Neuromentales) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                      [id_paciente,Amigdalitis, Asma, Bronquitis, Cancer, Diabetes, Influenza, Enf_Neuromentales, Cardio_Vasculares, Rubeola, Sarampion, Traumatismos, Neumania, Familiar_Artritis, Familiar_Asma, 
+                        Familiar_Cancer, Familiar_CVascular,Familiar_Diabetes, Familiar_Enf_Digestivas, Familiar_Enf_Neuromentales],
+                      (err, resultados) => {
+                        if (err) reject(err);
+                        else resolve(resultados);
+                      }
+                    );
+                  }
+                );
               }
             );
           } else{
@@ -49,13 +84,22 @@ class PacienteModels{
               `INSERT INTO paciente (tipo_paciente, Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
               [tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo],
               (err, resultados) => {
-                if (err) reject(err);
-                else resolve(resultados);
+                let codeHc = generarCodigo();
+                let id_paciente = resultados.insertId
+                Conexion.query(
+                  `INSERT INTO historiasclinicas (id_paciente,code_hc) VALUES (?, ?)`,
+                  [id_paciente,codeHc],
+                  (err, resultados) => {
+                    if (err) reject(err);
+                    else resolve(resultados);
+                  }
+                );
               }
             );
           }
         });
       }
+
       //Medelo para Actulizar los datos del paciente. Como la mayoria de todo no esta listo
       updtePacienteModel(nombre, apellido, cedula, genero, usuario, password, cargo) {
         return new Promise((resolve, reject) => {
@@ -82,6 +126,7 @@ class PacienteModels{
           );
         });
       }
+      
 }
 
 export default PacienteModels;

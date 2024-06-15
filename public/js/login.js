@@ -1,3 +1,5 @@
+//Aqui crea la constante de mensaje
+
 document.querySelector('.btn-login').addEventListener('click', async () => {
     const User = document.getElementById('username').value; //obtengo el valor de el nombre del ususario
     const Password = document.getElementById('password').value; //obtengo el valor de la contraseña del usuario
@@ -18,6 +20,9 @@ document.querySelector('.btn-login').addEventListener('click', async () => {
         } else {
         const error = await response.text(); // en caso de error muestra un error. NOTA: eso lo podemos usar para el aviso de contraseña o usuario incorrecto
         console.error('Error:', error);
+
+
+        //Aqui pones o le estableces que aparezca y muestre que usuario o contraseña incorrecta
 
         }
         } catch (error) {

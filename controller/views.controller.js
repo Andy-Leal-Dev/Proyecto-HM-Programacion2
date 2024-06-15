@@ -36,7 +36,6 @@ class Views{
         console.log(req.params.dni,req.params.tipo); 
         this.pacienteModel.getByDniModel(req.params.dni,req.params.tipo) 
         .then(async (responsePaciente) => {
-            console.log(responsePaciente);
             res.render("Paciente.ejs", {
               Rol,
               pacientes: responsePaciente

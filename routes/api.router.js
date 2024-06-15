@@ -12,9 +12,10 @@ const apiController = new ApiController()
 
 //Rutas de Pacientes
 Router.post('/newPaciente',apiController.addNewPaciente)
-
 //
-
+//Rutas de Consulta
+Router.post('/newConsulta',apiController.addNewConsulta)
+//
 //Rutas Perfil
 
 //
