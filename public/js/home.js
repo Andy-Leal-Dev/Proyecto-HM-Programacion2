@@ -29,4 +29,21 @@ document.querySelector('.btn-search-dni').addEventListener('click', async () => 
      }
 
 });
+document.querySelector('.btn-Paciente-adulto').addEventListener('click', async () => {
+  window.location.href = `/Registro_Paciente/1`
 
+});
+
+document.querySelector('.btn-Paciente-pediatrico').addEventListener('click', async () => {
+  window.location.href = `/Registro_Paciente/2`
+
+});
+document.querySelector('.btn-add').addEventListener('click', async () => {
+  document.querySelector(".div-add-paciente").style.display = "flex";
+
+});
+
+
+document.querySelector("#btn-exit").addEventListener("click", () => {
+  document.querySelector(".div-add-paciente").style.display = "none";
+});
