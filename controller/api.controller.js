@@ -16,15 +16,11 @@ class Api {
     //Creo un nuevo paciente NOTA: Creo que esta fallando. pero es una prueba mientras me das todo los datoa s ingresar y se tiene la vista
     addNewPaciente(req,res){
         //Le pido al usuario los siguientes datos. Mediante el body en formato JSOn
-         const{tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo,
-            Amigdalitis, Asma, Bronquitis, Cancer, Diabetes, Influenza, Enf_Neuromentales, Cardio_Vasculares, Rubeola, Sarampion, Traumatismos, Neumania, Familiar_Artritis, Familiar_Asma, 
-            Familiar_Cancer, Familiar_CVascular,Familiar_Diabetes, Familiar_Enf_Digestivas, Familiar_Enf_Neuromentales
+         const{tipo,Nombres,Apellidos,Cedula,Edad, Sexo,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo,
+    Personales, Familires, Pediatricos
          }= req.body
          //Uso la instancia del modelo PAciente para obtener el metodo y crear el paciente insertandolo a la base de datos
-         this.pacienteModel.addNewPacienteModel(tipo,Nombres,Apellidos,Cedula,Edad,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo,
-            Amigdalitis, Asma, Bronquitis, Cancer, Diabetes, Influenza, Enf_Neuromentales, Cardio_Vasculares, Rubeola, Sarampion, Traumatismos, Neumania, Familiar_Artritis, Familiar_Asma, 
-            Familiar_Cancer, Familiar_CVascular,Familiar_Diabetes, Familiar_Enf_Digestivas, Familiar_Enf_Neuromentales
-         )
+         this.pacienteModel.addNewPacienteModel(tipo,Nombres,Apellidos,Cedula,Edad,Sexo,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo,Personales, Familires, Pediatricos)
          .then(responsePaciente=>{
              res.status(200).send("fino")//Si se crea eniara un estatus 200 al ejs.
          })
