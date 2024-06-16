@@ -7,10 +7,10 @@ import { authMiddleware } from "../config/TokenManger.js";
 const Router = express.Router();
 //Instancia de los metodos de la clase Index
 const viewController = new ViewController();
-
 Router.get('/Paciente', authMiddleware, viewController.viewPaciente)//Vista principal. En este caso el listado de los pacientes
 Router.get('/SearchPaciente/:tipo/:dni', authMiddleware, viewController.searchPaciente) //Vista de Paciente buscado. este pide un DNi(Cedula) por parametro para su busqueda
 Router.get('/Usuario', authMiddleware, viewController.viewUsuarios) //Vista del listado de los usuarios. Solo puede acceder el Admin
 Router.get('/Perfil', authMiddleware, viewController.viewProfile) //Vista del perfil de los Usuarios Doctores y secretarios
-
+Router.get('/Registro_Paciente/:tipo',authMiddleware, viewController.viewReg_Paciente )//Vista registro de paciente
+Router.get('/Registro_Consulta',authMiddleware, viewController.viewReg_Consulta)//Vista de registro de consulta
 export default  Router;

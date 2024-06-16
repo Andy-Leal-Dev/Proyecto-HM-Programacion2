@@ -1,0 +1,156 @@
+<%- include("./template/header"); %>
+
+
+<form class="form-datos" data-tipo="<%= tipo %>"> 
+    <h2 class="Re_HC_RegDatos">Registro de Historia Clinica</h2>
+    <% if (tipo == 2) { %>
+        <h3 class="h3_RegDatosInfa">Datos del Menor</h3>
+        <label for="name" >Nombres:</label>
+        <input type="text" id="name" class="input-datosPer name_Ped">
+    
+        <label for="lastName" class="label-right">Apellidos:</label>
+        <input type="text" id="lastName" class="input-datosPer last_Ped">
+    
+        <label for="DNI" class="label-DNI">Cedula:</label>
+        <input type="number" id="DNI" class="input-datosPer  DNI_Ped">
+    
+        
+        <label for="Edad" class="label-right">Edad:</label>
+        <input type="number" id="Edad" class="input-datosPer Edad_Ped">
+    
+        <label for="select-sexo" class="label-right">Sexo</label>
+        <select name="sexo" id="select-sexo select-sexo_Ped">
+          <option value="">-- Escojer opcion --</option>
+          <option value="1">Hombre</option>
+          <option value="2">Mujer</option>
+        </select>
+    
+        <h3 class="h3_RegDatosInfa">Datos del Representante</h3>
+
+    <% } %>
+   
+      
+    <label for="name" >Nombres:</label>
+    <input type="text" id="name" class="input-datosPer name_Ad">
+
+    <label for="lastName" class="label-right">Apellidos:</label>
+    <input type="text" id="lastName" class="input-datosPer lastName_Ad">
+
+    <label for="DNI" class="label-DNI">Cedula:</label>
+    <input type="number" id="DNI" class="input-datosPer DNI_Ad">
+
+    
+    <label for="Edad" class="label-right">Edad:</label>
+    <input type="number" id="Edad" class="input-datosPer Edad_Ad">
+
+    <label for="select-sexo" class="label-right">Sexo</label>
+    <select name="sexo" id="select-sexo" class="select-sexo_Ad">
+      <option value="">-- Escojer opcion --</option>
+      <option value="1">Hombre</option>
+      <option value="2">Mujer</option>
+    </select>
+
+    <label for="tel" class="label-tel">Telefono:</label>
+    <input type="tel" id="tel" class="input-datosPer tel_Ad">
+
+    <label for="ocupacion" class="label-right">Ocupación:</label>
+    <input type="text" id="ocupacion" class="input-datosPer ocup_Ad">
+
+    <% if (tipo == 2) { %>
+        <% } else { %>
+            
+        <label for="direccion" class="label-dir">Direccion Completa:</label>
+        <input type="text" id="Direccion" class="input-datosPer Direc_Ad">
+        <label for="Info">Informacion Adicional:</label>
+        <input type="text" id="Info" class="input-datosPer Info_Ad">
+        <label for="emergencia" >Avisar en Caso de Emergencia:</label>
+        <input type="text" id="emergencia" class="input-datosPer emer_Ad">
+        <% } %>
+  
+    <label for="parentesco" >Parentesco:</label>
+    <input type="text" id="parentesco" class="input-datosPer Paren_Ad">
+   
+    <label for="tel-parentesco" class="label-right">Telefono:</label>
+    <input type="tel" id="tel-parentesco" class="input-datosPer tel-Ad">
+
+    <label for="di-parentesco">Direccion Completa:</label>
+    <input type="text" id="direccion" class="input-datosPer Dir_Paren_Ad">
+
+
+    
+   
+
+
+</form>
+
+<form class="form-antec"> 
+
+    <h2 class="Re_HC_Antec">Antecedentes</h2>
+    <h3 class="h3_antec">Personales</h3>
+        
+    <div class="table-Antec">
+
+        <input type="radio" id="input-antec" value="Amigdalitis">
+        <label for="input-antec" class="label-Antec">Amigdalitis</label>
+        <input type="radio" id="input-antec" value="Asma">
+        <label for="input-antec" class="label-Antec">Asma</label>
+        <input type="radio" id="input-antec" value="Bronquitis">
+        <label for="input-antec" class="label-Antec">Bronquitis</label>
+        <input type="radio" id="input-antec" value="Cancer">
+        <label for="input-antec" class="label-Antec">Cáncer</label>
+        <input type="radio" id="input-antec" value="Diabetes">
+        <label for="input-antec" class="label-Antec">Diabetes</label>
+        <input type="radio" id="input-antec" value="Influenza">
+        <label for="input-antec" class="label-Antec">Influenza</label>
+        <input type="radio" id="input-antec" value="Enf. Neuromentales">
+        <label for="input-antec" class="label-Antec">Enf. Neuromentales</label>
+        <input type="radio" id="input-antec" value="Cardio-Vasculares ">
+        <label for="input-antec" class="label-Antec">Cardio-Vasculares</label>
+        <input type="radio" id="input-antec" value="Rubeola">
+        <label for="input-antec" class="label-Antec">Rubeola</label>
+        <input type="radio" id="input-antec" value="Sarampion">
+        <label for="input-antec" class="label-Antec">Sarampión</label>
+        <input type="radio" id="input-antec" value="Traumatismos">
+        <label for="input-antec" class="label-Antec">Traumatismos</label>
+        <input type="radio" id="input-antec" value="Neumonia">
+        <label for="input-antec" class="label-Antec">Neumonía</label>
+    </div>
+
+    <h3 class="h3_antec">Familiares</h3>
+
+    <div class="table-Antec">
+       
+        <input type="radio" id="input-Antec_Per" value="Artritis">
+        <label for="input-Antec_Per" class="label-Antec">Artritis</label>
+        <input type="radio" id="input-Antec_Per" value="Asma">
+        <label for="input-Antec_Per" class="label-Antec">Asma</label>
+        <input type="radio" id="input-Antec_Per" value="Cancer">
+        <label for="input-Antec_Per" class="label-Antec">Cáncer</label>
+        <input type="radio" id="input-Antec_Per" value="Cardio-Vasculares">
+        <label for="input-Antec_Per" class="label-Antec">Cardio-Vasculares</label>
+        <input type="radio" id="input-Antec_Per" value="Diabetes">
+        <label for="input-Antec_Per" class="label-Antec">Diabetes</label>
+        <input type="radio" id="input-Antec_Per" value="Enf. Digestivas">
+        <label for="input-Antec_Per" class="label-Antec">Enf. Digestivas</label>
+        <input type="radio" id="input-Antec_Per" value="Enf. Neuromentales">
+        <label for="input-Antec_Per" class="label-Antec">Enf. Neuromentales</label>
+    </div>
+
+    <% if (tipo == 2) { %>
+    <h3 class="h3_antec">Neonatales</h3>
+    <div class="table-Antec">
+       
+        <input type="radio" id="input-Antec_Neo" value="Parto Eutocico">
+        <label for="input-antec" class="label-Antec">Parto Eutócico</label>
+        <input type="radio" id="input-Antec_Neo" value="Cesarea Segmentaria">
+        <label for="input-antec" class="label-Antec">Cesárea Segmentaria</label>
+    </div>
+    <% } %>
+
+</form>
+
+<div class="button">
+    <button type="button" class="btn-registro">Registrar</button>
+</div>
+
+<script src="/js/reg_paciente.js"></script>
