@@ -27,6 +27,21 @@ class Views{
         
     }
 
+    //Vista del registro de pacientes
+    viewReg_Paciente(req, res){
+        const token = req.cookies.jwt;//Obtengo el JWt de las cookies
+        const tipo = req.params.tipo;
+        console.log(tipo)
+        const Rol = VerifyTokenConvertId(token);
+        res.render("Paciente-Re.ejs",{Rol, tipo});
+    }
+
+
+    //Vista del registro de consulta
+    viewReg_Consulta(req, res){
+        res.render("Reg_Consulta.ejs");
+    }
+
     //Vista de Paciente Buscado. Esta vista mostrara unicamente el o los paciente que se quiere buscar
     searchPaciente(req,res){
         const token = req.cookies.jwt;
