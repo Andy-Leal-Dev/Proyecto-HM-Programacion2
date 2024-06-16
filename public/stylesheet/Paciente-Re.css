@@ -1,0 +1,254 @@
+/*     ----COLORES---
+#4784cd = Botones inactivos
+#335f94 = Cursor sobre el boton
+rgb(232, 235, 245) = Login y Registro
+*/
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(240, 244, 245);
+    height: 900px; 
+    padding: 80px 0 0 0;
+    flex-direction: column;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4783cdb0;
+    backdrop-filter: blur(0.4rem);
+    display: flex;
+    width: 100%;
+    padding: 20px 100px;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+
+.navbar a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+    position: relative;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 0;
+    height: 2px;
+    background: rgb(232, 235, 245);
+    transition: 0.3s;
+}
+
+.navbar a:hover::before{
+    width: 100%;
+}
+
+.form-datos, .form-antec{
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 700px;
+    box-shadow: 0 0 20px rgb(114, 114, 114);
+    border-radius: 15px;
+    background-color: rgb(232, 235, 245);
+    margin: 80px 0 0 0;
+
+}
+
+.form-antec{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 40px 0 0 0;
+}
+
+.Re_HC_RegDatos, .Re_HC_Antec{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: rgb(39, 55, 97);
+    padding: 0px 10% 33px 10%;
+
+}
+
+.Re_HC_Antec{
+    padding: 0px 10% 20px 10%;;
+}
+
+.h3_antec{
+    text-align: center;
+    color: #192a3f;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 42% 20px 42%;
+}
+
+
+.h3_RegDatosInfa{
+
+    text-align: center;
+    color: #192a3f;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 42% 20px 42%; 
+
+}
+.table-Antec{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.label-Antec{
+    font-size: 15px;
+    padding: 0 0 0 0;
+}
+#input-antec{
+    width: 20px;
+    margin: 1px 15px 0px 20px;
+    margin-bottom: 10px;
+}
+
+label{
+
+    font-family: Arial, Helvetica, sans-serif,Arial;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    padding: 7px 2% 0 0;
+}
+
+#name,#lastName{
+    width: 36.6%;
+}
+#tel, #ocupacion, #parentesco, #tel-parentesco{
+    width: 35.6%;
+}
+
+#DNI, #select-sexo{
+
+    width: 28.5%;
+}
+#direccion{
+    width: 75.4%;
+}
+
+.label-DNI {
+    padding:  7px 4.2% 0 0;
+}
+
+.label-right{
+    padding: 7px 1% 0 2%;
+}
+
+.label-dir{
+    padding: 7px 4% 0 0;
+}
+.label-tel{
+    padding:  7px 2.7% 0 0;
+}
+#Edad{
+    width: 70px;
+}
+
+#emergencia{
+    width: 62.5%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+
+    -webkit-appearance: none;
+}
+
+.input-datosPer{
+    padding: 8px 10px;
+    border: 1px solid rgb(47, 105, 153);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    width: 73.4%;
+    height: 35px;
+}
+#select-sexo {
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid rgb(47, 105, 153);
+}
+
+.button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.btn-registro{
+
+    margin: 30px;
+    background-color: #4784cd;
+    padding: 10px 50px;
+    font-size: 17px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btn-registro:active{
+
+    background-color: #192a3f;
+}
+
+/* Font de LOGO*/
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    }
+
+
+@media(max-with:900px){
+
+    body{
+        padding: 30px;
+    }
+    .header{
+        padding: 20px 20px;
+    
+    }
+    
+    #name,#lastName{
+        width: 100px;
+    }
+    
+    .form{
+        width: 100px;
+        
+    }
+
+    .forget-password{
+        flex-direction: column;
+    }
+
+}
