@@ -12,5 +12,5 @@ Router.get('/SearchPaciente/:tipo/:dni', authMiddleware, viewController.searchPa
 Router.get('/Usuario', authMiddleware, viewController.viewUsuarios) //Vista del listado de los usuarios. Solo puede acceder el Admin
 Router.get('/Perfil', authMiddleware, viewController.viewProfile) //Vista del perfil de los Usuarios Doctores y secretarios
 Router.get('/Registro_Paciente/:tipo',authMiddleware, viewController.viewReg_Paciente )//Vista registro de paciente
-Router.get('/Registro_Consulta',authMiddleware, viewController.viewReg_Consulta)//Vista de registro de consulta
+Router.get('/Registro_Consulta/:id',authMiddleware, viewController.viewReg_Consulta)//Vista de registro de consulta
 export default  Router;

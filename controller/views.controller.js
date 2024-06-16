@@ -39,7 +39,11 @@ class Views{
 
     //Vista del registro de consulta
     viewReg_Consulta(req, res){
-        res.render("Reg_Consulta.ejs");
+        const token = req.cookies.jwt;
+        const id = req.params.id;
+        console.log(id)
+        const Rol = VerifyTokenConvertId(token);
+        res.render("Reg_Consulta.ejs",{Rol, id});
     }
 
     //Vista de Paciente Buscado. Esta vista mostrara unicamente el o los paciente que se quiere buscar

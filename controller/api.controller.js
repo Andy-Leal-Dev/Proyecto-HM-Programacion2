@@ -13,7 +13,7 @@ class Api {
         this.addNewPaciente = this.addNewPaciente.bind(this); //Creo una instancia del metodo Para reconocer todas las variables establecidas
     }
     
-    //Creo un nuevo paciente NOTA: Creo que esta fallando. pero es una prueba mientras me das todo los datoa s ingresar y se tiene la vista
+    //Creo un nuevo paciente
     addNewPaciente(req,res){
         //Le pido al usuario los siguientes datos. Mediante el body en formato JSOn
          const{tipo,Nombres,Apellidos,Cedula,Edad, Sexo,Telefono,Ocupacion,Direccion_Completa,Informacion_Adicional,Emergencia,Parentesco,Telefono_Parentesco,Direccion_Parentesco,Pediatrico_Nombres,Pediatrico_Apellidos,Pediatrico_Edad,Pediatrico_Cedula,Pediatrico_Sexo,
@@ -29,12 +29,12 @@ class Api {
          })
     }
 
-
+    //Metodo de la api para crear un anueva conuslta
     addNewConsulta(req,res){
-        
-         const{id_historia,fecha, motivo,observacion,diagnostico,tratamiento}= req.body
-        
-         this.consultasModel.AddNewConsultas(id_historia,fecha, motivo,observacion,diagnostico,tratamiento)
+            //Le pido al usuario los siguientes datos. Mediante el body en formato JSOn
+         const{id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento}= req.body
+        //Uso la instancia del modelo Consulta para obtener el metodo y crear la consulta insertandolo a la base de datos
+         this.consultasModel.AddNewConsultas(id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento)
          .then(responseConsulta=>{
              res.status(200).send("fino")
          })
