@@ -39,11 +39,11 @@ document.querySelector('.btn-Paciente-pediatrico').addEventListener('click', asy
 
 });
 document.querySelector('.btn-add').addEventListener('click', async () => {
-  document.querySelector(".div-add-paciente").style.display = "flex";
+  document.querySelector("#PopUp").style.display = "flex";
 
 });
 
 
 document.querySelector("#btn-exit").addEventListener("click", () => {
-  document.querySelector(".div-add-paciente").style.display = "none";
+  document.querySelector("#PopUp").style.display = "none";
 });

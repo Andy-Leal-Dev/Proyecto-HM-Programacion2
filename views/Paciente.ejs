@@ -1,8 +1,8 @@
 <%- include("./template/header"); %>
 
-<div class="col-8 ">
-    <h1 class="text-dark mb-5">Lista de Pacientes</h1>
-    <div class="d-flex div-search-options">
+<div class="Container">
+    <h1 class="Text_title">Lista de Pacientes</h1>
+    <div class=" div-search-options">
        <div class="d-flex div-search-check">
         <div class="d-flex div-search ">
             <input type="text" id="input-dni" placeholder="Cedula del Paciente">
@@ -17,10 +17,8 @@
        </div>
         
         
-       <div>
+       <div class="div-btn-paciente">
         <a class="btn-add">Agregar</a>
-       
-
        </div>
     </div>
     <table class="table table-bordered">
@@ -44,7 +42,9 @@
                         <td><%= paciente.Cedula %></td>
                         <td><%= paciente.Telefono %></td>
                         <td>
-                            <a href="" class="btn btn-primary mb-2">Ver</a>
+                            <div class="div-btn-ver ">
+                                <a href="/Registro_Consulta/<%= paciente.id %>" class="btn-ver">Ver</a>
+                            </div>
                         </td>
                     </tr>
                     <% })%>
@@ -57,17 +57,19 @@
           
         </tbody>
     </table>
-    <div class="div-add-paciente" style="display:none;">
+    <div id="PopUp">
+        <div class="div-add-paciente" >
        
-        <div class="div-btn-exit">
-            <button type="button"   id="btn-exit">X</button>
-        </div>
-        <div class="div-mensaje">
-            <h1>Cual tipo de paciente quiere registrar?</h1>
-        <div class="div-btn-add-paciente">
-            <button class="btn-Paciente-adulto">Paciente Adulto</button>
-            <button class="btn-Paciente-pediatrico">Paciente Pediatrico</button>
-        </div>
+            <div class="div-btn-exit">
+                <button type="button"   id="btn-exit">X</button>
+            </div>
+            <div class="div-mensaje">
+                <h1>Cual tipo de paciente quiere registrar?</h1>
+            <div class="div-btn-add-paciente">
+                <button class="btn-Paciente-adulto">Paciente Adulto</button>
+                <button class="btn-Paciente-pediatrico">Paciente Pediatrico</button>
+            </div>
+            </div>
         </div>
     </div>
     <script src="/js/home.js"></script>

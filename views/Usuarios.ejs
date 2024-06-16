@@ -1,9 +1,9 @@
 <%- include("./template/header"); %>
 
-<div class="col-8 ">
-    <h1 class="text-dark mb-5">Lista del Personal</h1>
-    <div class="d-flex div-search-options">
-        <div class="d-flex div-search ">
+<div class="Container">
+    <h1 class="Text_title">Lista del Personal</h1>
+    <div class=" div-search-options">
+        <div class="div-search ">
             <input type="text" placeholder="Cedula del Personal">
             <button class="btn shadow-none">Buscar</button>
         </div>
@@ -35,7 +35,9 @@
                     <td><%= usuario.telefono %></td>
                     <td><%= usuario.cargo %></td>
                     <td>
-                        <a href="" class="btn btn-primary mb-2">Ver</a>
+                        <div class="div-btn-ver ">
+                            <a href="/Registro_Consulta/" class="btn-ver">Ver</a>
+                        </div>
                     </td>
                 </tr>
                 <% })%>
