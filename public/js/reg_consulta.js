@@ -7,6 +7,7 @@ document.querySelector('.btn-registrar').addEventListener('click', async()=>{
     const diagnosticoConsulta = document.querySelector('#diagnostico').value;
     const tratamientoConsulta = document.querySelector('#tratamiento').value;
     const id = document.querySelector('.form_consulta').dataset.id;
+    const tipo = document.querySelector('.form_consulta').dataset.tipo;
 
 
 
@@ -32,7 +33,7 @@ document.querySelector('.btn-registrar').addEventListener('click', async()=>{
         });
 
         if (response.ok) { //Si la peticion es exitosa
-        window.location.href = '/Paciente'; //Me redigira a la pagina principal en este caso paciente
+        window.location.href = `/HC/${tipo}/${id}`; //Me redigira a la pagina principal en este caso paciente
         } else {
         const error = await response.text(); // en caso de error muestra un error. NOTA: eso lo podemos usar para el aviso de contraseña o usuario incorrecto
         console.error('Error:', error);

@@ -71,6 +71,7 @@ color: white;
 .Container{
     width: 60%;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 @media(max-with:900px){
@@ -135,6 +136,7 @@ color: white;
 .div-search-check{
     display: flex;
     gap: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .div-check-options{
@@ -152,7 +154,7 @@ color: white;
     border: #4784cd 2px solid;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 5%;
+    
 }
 thead{
     border-bottom: #4784cd 2px solid;
@@ -230,7 +232,7 @@ td,tr{
 }
 
 .div-btn-ver{
-    margin-top: 15px;
+
     background-color: #4784cd;
     padding: 10px;
     font-size: 12px;
@@ -269,4 +271,19 @@ td,tr{
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     display: none;
+}
+
+.div-search-warning{
+    display: flex;
+    flex-direction: column;
+}
+.Pages{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 30px; 
 }

@@ -4,10 +4,13 @@
     <h1 class="Text_title">Lista de Pacientes</h1>
     <div class=" div-search-options">
        <div class="d-flex div-search-check">
+       <div class="div-search-warning">
+        <p id="warning"></p>
         <div class="d-flex div-search ">
             <input type="text" id="input-dni" placeholder="Cedula del Paciente">
             <button class="btn shadow-none btn-search-dni">Buscar</button>
         </div>
+       </div>
        <div class="div-check-options">
         <input type="checkbox" name="" id="CheckAdulto">
         <span>Adultos</span>
@@ -43,7 +46,7 @@
                         <td><%= paciente.Telefono %></td>
                         <td>
                             <div class="div-btn-ver ">
-                                <a href="/Registro_Consulta/<%= paciente.id %>" class="btn-ver">Ver</a>
+                                <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id %>" class="btn-ver">Ver</a>
                             </div>
                         </td>
                     </tr>
@@ -57,6 +60,24 @@
           
         </tbody>
     </table>
+
+    <div class="Pages">
+        <% if (currentPage > 1) { %>
+            <div class="div-btn-ver ">
+                <a href="/Paciente/<%= currentPage - 1 %>" class="btn-ver">Anterior</a>
+            </div>
+          <% } %>
+      
+          Página <%= currentPage %> de <%= totalPage %>
+      
+          <% if (currentPage < totalPage) { %>
+            
+            <div class="div-btn-ver ">
+                <a href="/Paciente/<%= currentPage + 1 %>" class="btn-ver">Siguiente</a>
+            </div>
+          <% } %>
+    </div>
+    
     <div id="PopUp">
         <div class="div-add-paciente" >
        

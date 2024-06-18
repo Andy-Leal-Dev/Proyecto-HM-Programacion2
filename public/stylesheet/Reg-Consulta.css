@@ -71,7 +71,7 @@ body{
 }
 
 #observacion,#diagnostico, #tratamiento{
-
+    padding: 7px 10px;
     width: 100%;
     height: 50%;
 }
@@ -114,13 +114,14 @@ label{
     margin-bottom: 10px;
     padding: 7px 2% 0 10px;
 }
-
+textarea,
 input{
     border: 1px solid rgb(47, 105, 153);
     border-radius: 10px;
     margin-bottom: 10px;
     color: black;
     font-size: 14px;
+    resize: none;
 }
 
 .btn-registrar{

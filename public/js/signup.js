@@ -1,4 +1,4 @@
-
+let RepetirAviso = 0;
 
 document.querySelector('.btn-signup').addEventListener('click', async () => {
     //Obtengo todos los valores del formulario por el id de cada uno 
@@ -8,8 +8,13 @@ document.querySelector('.btn-signup').addEventListener('click', async () => {
     const Gender = document.getElementById('select-genero').value;
     const User = document.getElementById('username').value;
     const Password = document.getElementById('password').value;
+    const PasswordConfir = document.getElementById('passwordConfirm').value;
+    const Password_doNoMarth1 = document.querySelector('.Password_NoMatch1');
+    const Password_doNoMarth2 = document.querySelector('.Password_NoMatch2');
+
     //******************************************************** */
     //creo un array con el dato y su valor para su envio
+    
     const data ={
             nombre:Name,
             apellido:LastName,
@@ -20,7 +25,9 @@ document.querySelector('.btn-signup').addEventListener('click', async () => {
             cargo:"1"
     }
 
-
+    if (Password==PasswordConfir) {
+        
+        
     try {
         const response = await fetch('/signUp', { //Usando el fetch hago la peticion a la api para el Registro
             method: 'POST', //Medoto de envio de datos para obtener una respuesta
@@ -41,5 +48,13 @@ document.querySelector('.btn-signup').addEventListener('click', async () => {
           // Handle fetch errors (e.g., network issues)
         }
     console.log(data);
+
+    }else{
+        if(RepetirAviso==0){
+        Password_doNoMarth1.textContent += "La contraseña no coincide";
+        Password_doNoMarth2.textContent += "La contraseña no coincide";
+        RepetirAviso+=1;
+        }
+    }
     
 });

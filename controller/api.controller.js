@@ -9,6 +9,8 @@ class Api {
     constructor(){
         this.pacienteModel = new PacienteModels();//Creo una instancia del modelo para usar sus metodos
         this.consultasModel = new Consultas();
+        this.getAllPaciente = this.getAllPaciente.bind(this);
+
         this.addNewConsulta = this.addNewConsulta.bind(this);
         this.addNewPaciente = this.addNewPaciente.bind(this); //Creo una instancia del metodo Para reconocer todas las variables establecidas
     }
@@ -43,8 +45,19 @@ class Api {
          })
     }
 
- 
-}
 
+    getAllPaciente(req, res){
+        const id = req.params.id;
+        console.log(id)
+        this.pacienteModel.getPacientesModel(id).then(responsePaciente=>{
+            res.status(200).json(responsePaciente)
+        }).catch(err => {
+            return res.status(500).send("Error obteniendo los pacientes");//En tal caso dira qu hay un error
+        });
+
+    }
+
+   
+}
 
 export default Api;

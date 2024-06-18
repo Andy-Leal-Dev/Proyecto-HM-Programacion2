@@ -21,11 +21,18 @@ CheckAdulto.addEventListener('change', function() {
 
 document.querySelector('.btn-search-dni').addEventListener('click', async () => {
   const DNI = document.getElementById('input-dni').value;
-     if( isNaN(DNI)){
-      console.log("ingrasa los datos bien");
+  const Warnings = document.getElementById('warning');
+     if( DNI == undefined || tipo == undefined){
+      Warnings.textContent += "ingrese la cedula y su tipo de paciente";
      } else{
-      console.log(tipo);
+      if(typeof DNI !== 'number'){
+        Warnings.textContent += "Solo valores numericos";
+        console.log(DNI);
+      }else{
+        console.log(tipo);
         window.location.href = `/SearchPaciente/${tipo}/${DNI}`
+      }
+     
      }
 
 });

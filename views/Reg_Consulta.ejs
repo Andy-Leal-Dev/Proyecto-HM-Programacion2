@@ -18,7 +18,7 @@
             </nav>
         </header>
     
-    <form class="form_consulta" data-id="<%= id %>">
+    <form class="form_consulta" data-id="<%= id %>" data-tipo="<%= tipo %>">
         <h2 class="h2_consulta">Consulta</h2>
 
         <div class="div_Data">
@@ -34,12 +34,12 @@
 
         </div>
         <label for="diagnostico">Observacion:</label>
-        <input type="text" id="observacion">
+        <textarea type="text" id="observacion"></textarea>
         <label for="diagnostico">Diagnostico:</label>
-        <input type="text" id="diagnostico">
+        <textarea type="text" id="diagnostico"></textarea>
 
         <label for="tratamiento">Tratamiento:</label>
-        <input type="text" id="tratamiento">
+        <textarea type="text" id="tratamiento"></textarea>
 
     <button type="button" class="btn-registrar">Agregar</button>
     </form>

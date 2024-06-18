@@ -140,9 +140,6 @@ document.querySelector('.btn-registro').addEventListener('click', async () => {
   const SexoPaciente = document.querySelector('.select-sexo_Ad').value;
   const TelefonoPaciente = document.querySelector('.tel_Ad').value;
   const OcupacionPaciente = document.querySelector('.ocup_Ad').value;
-  const Direccion_CompletaPaciente = document.querySelector('.Direc_Ad').value;
-  const Informacion_AdicionalPaciente = document.querySelector('.Info_Ad').value;
-  const EmergenciaPaciente = document.querySelector('.emer_Ad').value;
   const ParentescoPaciente = document.querySelector('.Paren_Ad').value;
   const Telefono_ParentescoPaciente = document.querySelector('.tel-Ad').value;
   const Direccion_ParentescoPaciente = document.querySelector('.Dir_Paren_Ad').value;
@@ -150,7 +147,7 @@ document.querySelector('.btn-registro').addEventListener('click', async () => {
   const Pediatrico_ApellidosPaciente = document.querySelector('.last_Ped').value
   const Pediatrico_EdadPaciente = document.querySelector('.Edad_Ped').value;
   const Pediatrico_CedulaPaciente = document.querySelector('.DNI_Ped').value
-  const Pediatrico_SexoPaciente = document.querySelector('#select-sexo_Ped').value
+  const Pediatrico_SexoPaciente = document.querySelector('.select-sexo_Ped').value
   const data ={
     tipo:tipoPaciente,
     Nombres:NombresPaciente,
@@ -160,9 +157,6 @@ document.querySelector('.btn-registro').addEventListener('click', async () => {
     Sexo:SexoPaciente,
     Telefono:TelefonoPaciente,
     Ocupacion:OcupacionPaciente,
-    Direccion_Completa:Direccion_CompletaPaciente,
-    Informacion_Adicional:Informacion_AdicionalPaciente,
-    Emergencia:EmergenciaPaciente,
     Parentesco:ParentescoPaciente,
     Telefono_Parentesco:Telefono_ParentescoPaciente,
     Direccion_Parentesco:Direccion_ParentescoPaciente,
@@ -188,7 +182,7 @@ document.querySelector('.btn-registro').addEventListener('click', async () => {
       });
   
       if (response.ok) { //Si la peticion es exitosa
-      window.location.href = '/Paciente'; //Me redigira a la pagina principal en este caso paciente
+      window.location.href = '/Paciente/1'; //Me redigira a la pagina principal en este caso paciente
       } else {
       const error = await response.text(); // en caso de error muestra un error. NOTA: eso lo podemos usar para el aviso de contraseña o usuario incorrecto
       Warnings.textContent += "Usuario o Contraseña Incorrecta";

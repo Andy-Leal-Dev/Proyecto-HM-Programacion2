@@ -1,13 +1,17 @@
 import { VerifyTokenConvertId } from "../config/TokenManger.js"; //Importamos la funcion que nos convierte el JWT al Rol O Id
 import PacienteModels from "../Models/pacientes.models.js"; //Importamos El modelo Paciente para Obtener los medodo Para obtener los datos o bascar Datos y Mostrarlos
 import UserModels from "../Models/user.models.js";//Importamos El modelo Usuario para Obtener los medodo Para obtener los datos o buscar Datos  y Mostrarlos
+import ConsultasModel from "../Models/consultas.models.js";
 class Views{
     constructor(){
         this.pacienteModel = new PacienteModels();//Creamos una instancia del Modelo Paciente para Obtener Todos sus metodos
+        this.consultaModel = new ConsultasModel();
         this.userModel = new UserModels();//Creamos una instancia del Modelo Usuario para Obtener Todos sus metodos
         this.viewPaciente = this.viewPaciente.bind(this);
         this.viewUsuarios = this.viewUsuarios.bind(this);
         this.searchPaciente = this.searchPaciente.bind(this);
+        this.viewProfilePaciente = this.viewProfilePaciente.bind(this);
+        this.viewConsulta = this.viewConsulta.bind(this);
     }
 
 
@@ -16,12 +20,22 @@ class Views{
         const token = req.cookies.jwt;//Obtengo el JWt de las cookies
         const Rol = VerifyTokenConvertId(token);//Convierto ese JWT para obtener el rol de Usuario y asi validar sus vistas
         //Le pido al modelo todos los Pacientes para mostrarlos en la vista
-        this.pacienteModel.getPacientesModel().then(responsePaciente=>{
-            res.render("Paciente.ejs",{ //Si se obtiene me renderisa(Muestra) la vista de Paciente.ejs
-                Rol, //Le paso a la vista el rol para validar lo que puede ver y usar
-                pacientes:responsePaciente //Le paso a la vista todos los pacientes en la base de datos
+        let CurrentPage = parseInt(req.params.page, 10)
+        console.log(CurrentPage);
+        this.pacienteModel.getTotalPacientesModel()
+        .then(TotalPage=>{
+            this.pacienteModel.getPacientesModel(CurrentPage).then(responsePaciente=>{
+                res.render("Paciente.ejs",{ //Si se obtiene me renderisa(Muestra) la vista de Paciente.ejs
+                    Rol, //Le paso a la vista el rol para validar lo que puede ver y usar
+                    pacientes:responsePaciente, //Le paso a la vista todos los pacientes en la base de datos
+                    totalPage:TotalPage,
+                    currentPage:CurrentPage
+                });
+            }).catch(err => {
+                return res.status(500).send("Error obteniendo los pacientes");//En tal caso dira qu hay un error
             });
-        }).catch(err => {
+        })
+        .catch(err => {
             return res.status(500).send("Error obteniendo los pacientes");//En tal caso dira qu hay un error
         });
         
@@ -35,17 +49,6 @@ class Views{
         const Rol = VerifyTokenConvertId(token);
         res.render("Paciente-Re.ejs",{Rol, tipo});
     }
-
-
-    //Vista del registro de consulta
-    viewReg_Consulta(req, res){
-        const token = req.cookies.jwt;
-        const id = req.params.id;
-        console.log(id)
-        const Rol = VerifyTokenConvertId(token);
-        res.render("Reg_Consulta.ejs",{Rol, id});
-    }
-
     //Vista de Paciente Buscado. Esta vista mostrara unicamente el o los paciente que se quiere buscar
     searchPaciente(req,res){
         const token = req.cookies.jwt;
@@ -63,8 +66,61 @@ class Views{
         .catch(err => {
             return res.status(500).send(err);//En tal caso dira qu hay un error
         })
-   }
+    }
 
+  
+    viewProfilePaciente(req,res){
+        const token = req.cookies.jwt;
+        const id = req.params.id;
+        console.log(id)
+        const Rol = VerifyTokenConvertId(token);
+        this.consultaModel.getConsultasPaciente(id).then(responseConsulta=>{
+            this.pacienteModel.getPacienteModel(id).then(responsePaciente => {
+                console.log(responsePaciente);
+                console.log(responseConsulta[0]);
+                return res.render('Profile_Paciente.ejs',{
+                    Rol, 
+                    paciente:responsePaciente[0],
+                    consultas:responseConsulta
+                })
+            })
+            .catch(err => {
+                return res.status(500).send("Error obteniendo productos");
+            });
+        }).catch(err => {
+            return res.status(500).send("Error obteniendo productos");
+        });
+        
+    }
+    
+  //Vista del registro de consulta
+    viewReg_Consulta(req, res){
+        const token = req.cookies.jwt;
+        const id = req.params.id;
+        const tipo = req.params.tipo;
+        console.log(id)
+        const Rol = VerifyTokenConvertId(token);
+        res.render("Reg_Consulta.ejs",{Rol, id, tipo});
+    }
+
+    viewConsulta(req,res){
+        const token = req.cookies.jwt;
+        const id = req.params.id;
+        console.log(id)
+        const Rol = VerifyTokenConvertId(token);
+        this.consultaModel.getConsulta(id).then(responseConsulta=>{
+            console.log(responseConsulta);
+            res.render('ShowConsulta.ejs',{
+                Rol, 
+                consulta:responseConsulta[0]
+            })
+        }).catch(err => {
+            return res.status(500).send("Error obteniendo productos");
+        });
+    }
+
+
+ 
     //Vista de Usuarios. Esta vista solo tiene acceso los Admins 
     viewUsuarios(req,res){
         const token = req.cookies.jwt;//Obtengo el JWt de las cookies
@@ -81,6 +137,11 @@ class Views{
         });
         
     }
+
+    viewProfileUsuario(req,res){
+        res.render('Profile_Usuario.ejs')
+    }
+
     //Vista de los perfiles. Nota: Haz lo que se te ocurra. cuando se trate pasar la informacion me dices para hacerlo.
     viewProfile(req,res){
         const token = req.cookies.jwt;

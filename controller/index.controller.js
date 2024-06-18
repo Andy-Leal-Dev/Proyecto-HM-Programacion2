@@ -46,7 +46,7 @@ class Index {
                 res.cookie("jwt",`${jwt}`,{httpOnly: true, secure: true,   sameSite: 'strict' });//se evia al ejs. Nota: esta parte tengo que pasarla como Cookie.
                 res.status(200).send('Login successful');
             } else{ //Si la contrseña no es correcta hay que mostrar algo en pantalla
-                console.log("no coninciden");
+                return res.status(500).send(err);
             }
       
         })
