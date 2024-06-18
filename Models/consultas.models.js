@@ -4,17 +4,31 @@ class Consultas{
     constructor(){}
 
     //Obtiene todas las consultas de un paciente en especifico por su id
-    getConsultasPaciente(id){
+    getConsultasPaciente(id,currentPage){
       return new Promise((resolve, reject) => {
         Conexion.query(`SELECT consulta.id, consulta.fecha, consulta.motivo_consulta FROM consulta
                         JOIN hc_consultas ON hc_consultas.id_consultas = consulta.id
                         JOIN historiasclinicas ON historiasclinicas.id = hc_consultas.id_hisorias
-                        JOIN paciente ON paciente.id = historiasclinicas.id_paciente WHERE paciente.id = ?`,[id],
+                        JOIN paciente ON paciente.id = historiasclinicas.id_paciente WHERE paciente.id = ? LIMIT ?, 5`,[id,(currentPage - 1) * 5],
             (err, resultados) => {
                 if (err) reject(err);
                 else resolve(resultados);
             });
         });
+    }
+    getTotalConsultasModel(id){
+      return new Promise((resolve, reject) => {
+      Conexion.query(`select COUNT(*) AS total_records from consulta JOIN hc_consultas ON hc_consultas.id_consultas = consulta.id
+                        JOIN historiasclinicas ON historiasclinicas.id = hc_consultas.id_hisorias
+                        JOIN paciente ON paciente.id = historiasclinicas.id_paciente WHERE paciente.id = ? `,[id],
+          (err, resultados) => {
+              if (err){ reject(err);}
+              else{
+
+                const totalPages = Math.ceil(resultados[0].total_records / 5); 
+                resolve(totalPages);}
+          });
+      });
     }
 
     //Obtiene toda la consulta cons su tratamiento y diagnostico
@@ -33,7 +47,6 @@ class Consultas{
         return new Promise((resolve, reject) => {
             Conexion.query(`SELECT id FROM historiasclinicas WHERE id_paciente = ?`,
               [id_paciente],(err,resultados)=>{
-                console.log(resultados);
                 let id_hisoria = resultados[0].id
               Conexion.query(
                 `INSERT INTO consulta ( fecha, doctor, motivo_consulta, observacion_consulta) VALUES (?, ?, ?,?)`,

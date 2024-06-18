@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title><%= title %></title>
     <link href="/stylesheet/Home.css" rel="stylesheet" type="text/css">
     <link href="/stylesheet/Paciente-Re.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheet/ProfilePaciente.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheet/ProfileUsuario.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/stylesheet/Reg-Consulta.css">
+    <link rel="stylesheet" href="/stylesheet/ShowConsulta.css" type="text/css">
 </head>
 <body>
     <header class="header">
@@ -14,7 +18,7 @@
         <a href="/Perfil">Perfil</a>
         <a href="/Paciente/1">Pacientes</a>
         <% if (Rol === 0) { %>
-            <a href="/Usuario">Personal</a>
+            <a href="/Usuario/1">Personal</a>
           <% } %>
         <a href="/LogOut" >Cerrar Sesion</a>
         </nav>

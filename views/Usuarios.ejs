@@ -8,11 +8,6 @@
             <button class="btn shadow-none">Buscar</button>
         </div>
        <div>
-        <a href="" class="btn btn-primary mb-2">Agregar</a>
-        <% if (Rol === 0) { %>
-            <a href="" class="btn btn-danger mb-2" >Eliminar</a>
-          <% } %>
-
        </div>
     </div>
     <table class="table table-bordered">
@@ -36,11 +31,27 @@
                     <td><%= usuario.cargo %></td>
                     <td>
                         <div class="div-btn-ver ">
-                            <a href="/Registro_Consulta/" class="btn-ver">Ver</a>
+                            <a href="/PerfilUsuario/<%= usuario.id %>" class="btn-ver">Ver</a>
                         </div>
                     </td>
                 </tr>
                 <% })%>
         </tbody>
     </table>
+    <div class="Pages">
+        <% if (currentPage > 1) { %>
+            <div class="div-btn-ver ">
+                <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage - 1 %>" class="btn-ver">Anterior</a>
+            </div>
+          <% } %>
+      
+          Página <%= currentPage %> de <%= totalPage %>
+      
+          <% if (currentPage < totalPage) { %>
+            
+            <div class="div-btn-ver ">
+                <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage + 1 %>" class="btn-ver">Siguiente</a>
+            </div>
+          <% } %>
+    </div>
 </div>

@@ -34,6 +34,7 @@ class PacienteModels{
             if (err){console.log(err); reject(err);}
             else{
               const totalPages = Math.ceil(resultados[0].total_records / 10); 
+              console.log(totalPages);
               resolve(totalPages);}
         });
     });

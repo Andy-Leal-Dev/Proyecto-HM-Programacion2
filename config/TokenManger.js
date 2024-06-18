@@ -19,7 +19,7 @@ export const VerifyTokenConvertId = (JwtToken) => {
   // Decodificacion del JWT
   const decoded = JWT.verify(JwtToken, process.env.Jwt_Secret);
   // Retorno del ID del Usuario
-  return decoded.Cargo;
+  return decoded;
 };
 
 //Esta funcion Valida si hay un JWT en las Cookies. Sin no tiene dicho JWT lo reenvia a la pagina principal. Hasta que no inicie sesion no podra acceder.

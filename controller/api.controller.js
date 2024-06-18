@@ -9,8 +9,7 @@ class Api {
     constructor(){
         this.pacienteModel = new PacienteModels();//Creo una instancia del modelo para usar sus metodos
         this.consultasModel = new Consultas();
-        this.getAllPaciente = this.getAllPaciente.bind(this);
-
+        this.deletePaciente = this.deletePaciente.bind(this);
         this.addNewConsulta = this.addNewConsulta.bind(this);
         this.addNewPaciente = this.addNewPaciente.bind(this); //Creo una instancia del metodo Para reconocer todas las variables establecidas
     }
@@ -31,33 +30,32 @@ class Api {
          })
     }
 
-    //Metodo de la api para crear un anueva conuslta
-    addNewConsulta(req,res){
-            //Le pido al usuario los siguientes datos. Mediante el body en formato JSOn
-         const{id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento}= req.body
-        //Uso la instancia del modelo Consulta para obtener el metodo y crear la consulta insertandolo a la base de datos
-         this.consultasModel.AddNewConsultas(id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento)
-         .then(responseConsulta=>{
-             res.status(200).send("fino")
-         })
-         .catch(err => {
+ 
+
+    deletePaciente(req,res){
+        const id = req.params.id;
+        this.pacienteModel.deletePacienteModel(id)
+        .then(responsePaciente=>{
+            return res.status(200).send("fino")
+        })
+        .catch(err => {
              return res.status(500).send(err);
          })
-    }
-
-
-    getAllPaciente(req, res){
-        const id = req.params.id;
-        console.log(id)
-        this.pacienteModel.getPacientesModel(id).then(responsePaciente=>{
-            res.status(200).json(responsePaciente)
-        }).catch(err => {
-            return res.status(500).send("Error obteniendo los pacientes");//En tal caso dira qu hay un error
-        });
 
     }
-
-   
+      //Metodo de la api para crear un anueva conuslta
+    addNewConsulta(req,res){
+        //Le pido al usuario los siguientes datos. Mediante el body en formato JSOn
+     const{id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento}= req.body
+    //Uso la instancia del modelo Consulta para obtener el metodo y crear la consulta insertandolo a la base de datos
+     this.consultasModel.AddNewConsultas(id_paciente,fecha, doctor, motivo,observacion,diagnostico,tratamiento)
+     .then(responseConsulta=>{
+         return res.status(200).send("fino")
+     })
+     .catch(err => {
+         return res.status(500).send(err);
+     })
+}
 }
 
 export default Api;

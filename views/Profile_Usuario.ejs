@@ -1,57 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/stylesheet/ProfileUsuario.css" rel="stylesheet" type="text/css">
-    <title>Document</title>
-</head>
-<body>
-
-    <header class="header">
-        <h1>LOGO</h1>
-        <nav class="navbar">              
-        <a href="/Perfil">Perfil</a>
-        <a href="/Paciente">Pacientes</a>
-        <a href="/LogOut">Cerrar Secion</a>
-        </nav>
-    </header>
-
+<%- include("./template/header"); %>
     <h3 class="h3Pro_User">Perfil</h3>
 
+    <% if (Rol === 0) {%>
     <div class="div-btnUser-edit_delete">
         <button class="btn-UserEdit">Editar</button>
         <button class="btn-UserDelete">Eliminar</button>
     </div>
+    <%} %>
         <div class="DataUser">
             <table class="tableDatosUser">
                 <tr>
                     <td class="td-campoUser">Usuario</td>
-                    <td class="td-DatosUser">vicky</td>
+                    <td class="td-DatosUser"><%= usuario.usuario %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Nombres</td>
-                    <td class="td-DatosUser"> Mary</td>
+                    <td class="td-DatosUser"><%= usuario.nombre %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Apellidos</td>
-                    <td class="td-DatosUser">Luis</td>
+                    <td class="td-DatosUser"><%= usuario.apellido %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Cedula</td>
-                    <td class="td-DatosUser">8561320</td>
+                    <td class="td-DatosUser"><%= usuario.cedula %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Sexo</td>
-                    <td class="td-DatosUser">Mujer</td>
+                    <% if (usuario.genero == 1) { %>
+                        <td class="td-DatosPer">Hombre</td>
+                    <% } else { %>
+                        <td class="td-DatosPer">Mujer</td>
+                    <% } %>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Rol</td>
-                    <td class="td-DatosUser">0451313</td>
+                    <% if (usuario.cargo == 1) { %>
+                        <td class="td-DatosPer">Doctor(a)</td>
+                    <% } else { %>
+                        <td class="td-DatosPer">Secretario(a)</td>
+                    <% } %>
                 </tr>
                 <tr>
             </table>
         </div>
 
-</body>
-</html>

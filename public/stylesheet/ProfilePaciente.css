@@ -133,7 +133,6 @@ td{
     border: #4784cd 2px solid;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 5%;
     text-align: center;
   
 }
@@ -187,5 +186,113 @@ h1{
     }
 
 
+    .Pages{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        gap: 30px; 
+    }
+
+    .div-btn-ver{
+
+        background-color: #4784cd;
+        padding: 10px;
+        font-size: 12px;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .div-btn-ver a{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        color: white;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+    }
+.Container-Pefil-paciente{
+       margin-bottom: 5%;
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       flex-direction: column;
+}    
 
 
+#PopUp{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.div-delete-paciente{
+    padding: 20px 30px 30px 30px;
+    position: absolute;
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: max-content;
+    max-width: 80%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgb(114, 114, 114);
+    border-radius: 15px;
+    background-color: rgb(232, 235, 245);
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.div-mensaje h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: rgb(39, 55, 97);
+    margin-bottom: 25px;
+}
+
+.div-btn-exit{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0px 0px 13px 0;
+}
+
+#btn-exit{
+    font-size: 20px;
+    border: none;
+    background-color: rgb(232, 235, 245) ;
+}
+.div-btn-delete-paciente{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+
+.btn-decline,
+.btn-acept{
+    margin-top: 15px;
+    background-color: #4784cd;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}

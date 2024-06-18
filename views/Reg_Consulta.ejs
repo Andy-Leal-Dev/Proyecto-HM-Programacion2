@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheet/Reg-Consulta.css">
-    <title>Document</title>
-</head>
-<body>
-    
-        <!--Luego se interpolan o lo que sea-->
-        <header class="header">
-            <h1>LOGO</h1>
-            <nav class="navbar">              
-            <a href="/Perfil">Perfil</a>
-            <a href="/Paciente">Pacientes</a>
-            <a href="/LogOut">Cerrar Secion</a>
-            </nav>
-        </header>
-    
+<%- include("./template/header"); %>
     <form class="form_consulta" data-id="<%= id %>" data-tipo="<%= tipo %>">
         <h2 class="h2_consulta">Consulta</h2>
 
@@ -45,5 +26,3 @@
     </form>
 
     <script src="/js/reg_consulta.js"></script>
-</body>
-</html>

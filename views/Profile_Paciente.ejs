@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/stylesheet/ProfilePaciente.css" rel="stylesheet" type="text/css">
-    <title>Document</title>
-</head>
-<body>
+<%- include("./template/header"); %>
 
-    <header class="header">
-        <h1>LOGO</h1>
-        <nav class="navbar">              
-        <a href="/Perfil">Perfil</a>
-        <a href="/Paciente">Pacientes</a>
-        <a href="/LogOut">Cerrar Secion</a>
-        </nav>
-    </header>
-
-    <h3 class="h3DatosPerson">Historia Clinica</h3>
+    <div class="Container-Pefil-paciente" data-id="<%= paciente.id_paciente %>">
+        <h3 class="h3DatosPerson">Historia Clinica</h3>
     <div class="div-btn-edit_delete">
         <a href="/Registro_Consulta/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>" class="btn-add-consulta">Añadir Consulta</a>
         <button class="btn-Edit">Editar</button>
@@ -120,6 +104,38 @@
             </table>
 
         </div>
+        <div id="PopUp">
+            <div class="div-delete-paciente" >
+           
+                <div class="div-btn-exit">
+                    <button type="button"   id="btn-exit">X</button>
+                </div>
+                <div class="div-mensaje">
+                    <h1>Estas seguro que quiere borrar la Historia clinica?</h1>
+                <div class="div-btn-delete-paciente">
+                    <button class="btn-decline">Cancelar</button>
+                    <button class="btn-acept">Confirmar</button>
+                </div>
+                </div>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="Pages">
+            <% if (currentPage > 1) { %>
+                <div class="div-btn-ver ">
+                    <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage - 1 %>" class="btn-ver">Anterior</a>
+                </div>
+              <% } %>
+          
+              Página <%= currentPage %> de <%= totalPage %>
+          
+              <% if (currentPage < totalPage) { %>
+                
+                <div class="div-btn-ver ">
+                    <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage + 1 %>" class="btn-ver">Siguiente</a>
+                </div>
+              <% } %>
+        </div>
+
+    </div>
+    <script src="/js/profilePaciente.js"></script>
