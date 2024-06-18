@@ -1,0 +1,191 @@
+/*     ----COLORES---
+#4784cd = Botones inactivos
+#335f94 = Cursor sobre el boton
+rgb(232, 235, 245) = Login y Registro
+*/
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(240, 244, 245);
+    min-height: 100%; 
+    padding: 80px 0 0 0;
+    flex-direction: column;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4783cdb0;
+    backdrop-filter: blur(0.4rem);
+    display: flex;
+    width: 100%;
+    padding: 20px 100px;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+
+.navbar a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+    position: relative;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 0;
+    height: 2px;
+    background: rgb(232, 235, 245);
+    transition: 0.3s;
+}
+
+.navbar a:hover::before{
+    width: 100%;
+}
+
+.Data{
+    width: 63%;
+}
+
+.tableDatosPer{
+    padding: 0 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.td-campo{
+    width: 30%;
+    font-weight: bold;
+
+}
+.td-DatosPer, .td-campo{
+    padding: 10px 15px;
+    border-bottom: solid 1px black;
+}
+.div-btn-edit_delete{
+    margin-top: 15px;
+   width: 800px;
+   display: flex;
+   justify-content: right;
+}
+.btn-add-consulta,
+.btn-Edit {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #4784cd;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.btn-Edit:active{
+
+    background-color: #192a3f;
+}
+
+.btn-Delete{
+    background-color: #cd4747;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-Delete:active{
+    background-color: #8d2b2b;
+}
+.th_Consulta{
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
+}
+
+td{
+    padding: 15px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.table_DatosConsulta{
+    width: 100%;
+    border: #4784cd 2px solid;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 5%;
+    text-align: center;
+  
+}
+
+.btn-verConsulta{
+    background-color: #4784cd;
+    padding: 7px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-verConsulta:active{
+
+    background-color: #192a3f;
+}
+
+.h3DatosPerson{
+    margin-top: 80px;
+    color: #192a3f;
+    font-size: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.DataPer{
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 800px;
+    box-shadow: 0 0 20px rgb(192 193 221);
+    border-radius: 15px;
+    background-color: rgb(232, 235, 245);
+    margin-top: 20px;
+
+}
+
+.DataConsulta{
+    padding: 50px 0px;
+    display: flex;
+    width: 750px;
+    align-items: center;
+}
+
+
+/*Font de LOGO*/
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    }
+
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheet/ProfilePaciente.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header class="header">
+        <h1>LOGO</h1>
+        <nav class="navbar">              
+        <a href="/Perfil">Perfil</a>
+        <a href="/Paciente">Pacientes</a>
+        <a href="/LogOut">Cerrar Secion</a>
+        </nav>
+    </header>
+
+    <h3 class="h3DatosPerson">Historia Clinica</h3>
+    <div class="div-btn-edit_delete">
+        <a href="/Registro_Consulta/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>" class="btn-add-consulta">Añadir Consulta</a>
+        <button class="btn-Edit">Editar</button>
+        <% if (Rol === 0) { %>
+            <button class="btn-Delete">Eliminar</button>
+        <% } %>
+        
+    </div>
+        <div class="DataPer">
+            <table class="tableDatosPer">
+                <tr>
+                    <td class="td-campo">Nombres</td>
+                    <td class="td-DatosPer"><%= paciente.Nombres %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Apellidos</td>
+                    <td class="td-DatosPer"><%= paciente.Apellidos %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Cedula</td>
+                    <td class="td-DatosPer"><%= paciente.Cedula %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Edad</td>
+                    <td class="td-DatosPer"><%= paciente.Edad %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Sexo</td>
+                   
+                    <% if (paciente.Sexo == 1) { %>
+                        <td class="td-DatosPer">Hombre</td>
+                    <% } else { %>
+                        <td class="td-DatosPer">Mujer</td>
+                    <% } %>
+                </tr>
+                <tr>
+                    <td class="td-campo">Telefono</td>
+                    <td class="td-DatosPer"><%= paciente.Telefono %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Ocupacion</td>
+                    <td class="td-DatosPer"><%= paciente.Ocupacion %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Direccion Completa</td>
+                    <td class="td-DatosPer"><%= paciente.Direccion_Completa %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Indformacion adicional</td>
+                    <td class="td-DatosPer"><%= paciente.Informacion_Adicional %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Avisar en caso de emergencia</td>
+                    <td class="td-DatosPer"><%= paciente.Emergencia %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Parentesco</td>
+                    <td class="td-DatosPer"><%= paciente.Parentesco %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Telefono</td>
+                    <td class="td-DatosPer"><%= paciente.Telefono_Parentesco %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Direccion</td>
+                    <td class="td-DatosPer"><%= paciente.Direccion_Parentesco %></td>
+                </tr>
+                <tr>
+                    <td class="td-campo">Antecedentes</td>
+                    <td class="td-DatosPer"><%= paciente.Personales %><%= paciente.Familires %></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="DataConsulta">
+            <table class="table_DatosConsulta">              
+                <tr>
+                    <th class="th_Consulta">ID</th>
+                    <th class="th_Consulta">Fecha</th>
+                    <th class="th_Consulta">Motivo</th>
+                </tr>
+                <% if (consultas.length > 0) { %>
+                    <% consultas.forEach(consulta => { %>
+                        <tr>
+
+                            <td><%= consulta.id %></td>
+                            <td><%= consulta.fecha.toLocaleDateString() %></td>
+                            <td><%= consulta.motivo_consulta %></td>
+                            <td><a href="/Consulta/<%= consulta.id %>" class="btn-verConsulta">Ver</a></td>
+                        </tr>
+                        <% })%>
+                    
+                <% } else { %>
+                    <tr>
+                        <td colspan="2">No se encontraron pacientes</td>
+                    </tr>
+                <% } %>
+           
+            </table>
+
+        </div>
+
+</body>
+</html>

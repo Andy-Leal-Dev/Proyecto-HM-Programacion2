@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/ShowConsulta.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header class="header">
+        <h1>LOGO</h1>
+        <nav class="navbar">              
+        <a href="/Perfil">Perfil</a>
+        <a href="/Paciente">Pacientes</a>
+        <a href="/LogOut">Cerrar Secion</a>
+        </nav>
+    </header>
+
+    <h3 class="h3Consulta">Consulta Medica</h3>
+    <div class="div-consulta">
+        <table class="table-cansulta">
+            <tr>
+                <td class="td-consulta">Fecha</th>
+                <td><%= consulta.fecha.toLocaleDateString()  %></td>
+            </tr>
+            <tr>
+                <td class="td-consulta">Doctor</th>
+                <td><%= consulta.doctor %></td>
+            </tr>
+            <tr>
+                <td class="td-consulta">Motivo</th>
+                <td><%= consulta.motivo_consulta %></td>
+            </tr>
+            <tr>
+                <td class="td-consulta">Motivo</th>
+                <td><%= consulta.observacion_consulta %></td>
+            </tr>
+            <tr>
+                <td class="td-consulta">Diagnostico</th>
+                <td><%= consulta.descripcion_diagnostico %></td>
+            </tr>
+            <tr>
+                <td class="td-consulta">Tratamiento</th>
+                <td><%= consulta.descripcion_tratamiento %></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
