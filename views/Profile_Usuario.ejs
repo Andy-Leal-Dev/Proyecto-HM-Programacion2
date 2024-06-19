@@ -11,19 +11,19 @@
             <table class="tableDatosUser">
                 <tr>
                     <td class="td-campoUser">Usuario</td>
-                    <td class="td-DatosUser"><%= usuario.usuario %></td>
+                    <td class="td-DatosPer"><%= usuario.usuario %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Nombres</td>
-                    <td class="td-DatosUser"><%= usuario.nombre %></td>
+                    <td class="td-DatosPer"><%= usuario.nombre %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Apellidos</td>
-                    <td class="td-DatosUser"><%= usuario.apellido %></td>
+                    <td class="td-DatosPer"><%= usuario.apellido %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Cedula</td>
-                    <td class="td-DatosUser"><%= usuario.cedula %></td>
+                    <td class="td-DatosPer"><%= usuario.cedula %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Sexo</td>
@@ -44,4 +44,58 @@
                 <tr>
             </table>
         </div>
-
+        <div class="container-setUser">
+            <div class="SetProfile">
+                <table>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setUser">Usuario</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setUser" placeholder="<%= usuario.usuario %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setUser">Nombres</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setUser" placeholder="<%= usuario.nombre %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setUser">Apellidos</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setUser" placeholder="<%= usuario.apellido %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setUser">Cedula</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setUser" placeholder="<%= usuario.cedula %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="select-rol" class="label-setUser">Rol</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <select name="rol" id="select-rol" class="input-setUser">
+                                <option value="">-- Escojer pcion --</option>
+                                <option value="1">Doctor</option>
+                                <option value="2">Secretaria</option>
+                            </select>
+                        </th>
+                    </tr>
+                </table>
+                <div class="div-btn-UpClo">
+                    <button class="bth-UptData">Actualizar</button>
+                    <button class="bth-Close">Cerrar</button>
+                </div>
+            </div>
+        </div>
+        <script src="/js/ProfileUser.js"></script>

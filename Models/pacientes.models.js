@@ -58,9 +58,9 @@ class PacienteModels{
 
 }
   //Modelo para Buscar los Pacientes que van a aprecer en las listas
-  getByDniModel(dni,tipo){
+  getByDniModel(dni,tipo,CurrentPage){
       return new Promise((resolve, reject) => {
-      Conexion.query(`SELECT id,Nombres,Apellidos,Cedula,Edad,Telefono FROM paciente WHERE Cedula = ? AND tipo_paciente = ?;`,[dni, tipo],
+      Conexion.query(`SELECT id,Nombres,Apellidos,Cedula,Edad,Telefono FROM paciente WHERE Cedula = ? AND tipo_paciente = ? LIMIT ?, 10`,[dni, tipo,((CurrentPage - 1) * 10)],
           (err, resultados) => {
               if (err) {
                 reject(err)

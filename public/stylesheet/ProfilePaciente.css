@@ -20,52 +20,13 @@ body{
     flex-direction: column;
 }
 
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #4783cdb0;
-    backdrop-filter: blur(0.4rem);
-    display: flex;
-    width: 100%;
-    padding: 20px 100px;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-
-}
-
-
-.navbar a {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 40px;
-    position: relative;
-}
-
-.navbar a::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0px;
-    width: 0;
-    height: 2px;
-    background: rgb(232, 235, 245);
-    transition: 0.3s;
-}
-
-.navbar a:hover::before{
-    width: 100%;
-}
 
 .Data{
     width: 63%;
 }
 
 .tableDatosPer{
+    width: 100%;
     padding: 0 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -295,4 +256,75 @@ h1{
     color: white;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+
+.container-setUser{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(174, 177, 182, 0.445);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SetProfile{
+    padding: 50px;
+    display: flex;
+    width: 500px;
+    box-shadow: 0 0 20px rgb(192 193 221);
+    border-radius: 15px;
+    background-color: rgb(232, 235, 245);
+    flex-direction: column;
+}
+
+.label-setUser{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-right: 20px;
+    justify-content: center;
+}
+
+.input-setUser{
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #4784cd;
+}
+
+.th-DataUser{
+ padding-bottom: 10px;
+}
+
+.bth-UptData, .bth-Close{
+    background-color: #4784cd;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.bth-Close{
+    margin-left: 15px;
+    background-color: #cd4747;
+}
+
+.bth-Close:hover{
+    background-color: #8d2b2b;
+}
+
+.bth-UptData:hover{
+    background-color: #335f94;
+}
+.div-btn-UpClo{
+    display: flex;
+    width: 100%;
+    padding-top: 18px;
+    justify-content: center;
+
 }

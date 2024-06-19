@@ -19,46 +19,6 @@ body{
     padding: 80px 0 0 0;
     flex-direction: column;
 }
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #4783cdb0;
-    backdrop-filter: blur(0.4rem);
-    display: flex;
-    width: 100%;
-    padding: 20px 100px;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-
-}
-
-
-.navbar a {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 40px;
-    position: relative;
-}
-
-.navbar a::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0px;
-    width: 0;
-    height: 2px;
-    background: rgb(232, 235, 245);
-    transition: 0.3s;
-}
-
-.navbar a:hover::before{
-    width: 100%;
-}
 
 
 #date, #doctor, #motivo{
@@ -107,7 +67,7 @@ body{
 
 }
 
-label{
+#label-RC{
     font-family: Arial, Helvetica, sans-serif,Arial;
     font-size: 15px;
     color: rgb(0, 0, 0);
@@ -115,7 +75,9 @@ label{
     padding: 7px 2% 0 10px;
 }
 textarea,
-input{
+#date,
+#doctor,
+#motivo{
     border: 1px solid rgb(47, 105, 153);
     border-radius: 10px;
     margin-bottom: 10px;

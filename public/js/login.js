@@ -20,7 +20,7 @@ document.querySelector('.btn-login').addEventListener('click', async () => {
         
 
         if (response.ok) { //Si la peticion es exitosa
-        window.location.href = '/Paciente'; //Me redigira a la pagina principal en este caso paciente
+        window.location.href = '/Paciente/1'; //Me redigira a la pagina principal en este caso paciente
         } else {
         const error = await response.text(); // en caso de error muestra un error. NOTA: eso lo podemos usar para el aviso de contraseña o usuario incorrecto
                   if(RepetirWarning==0){

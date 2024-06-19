@@ -76,9 +76,16 @@ class UserModels{
           });
           
       });
-  
-  
 }
+    getByDNIModel(DNI,currentPage){
+        return new Promise((resolve, reject) => {
+          Conexion.query(`select id, nombre, apellido, cedula, cargo from usuario where cedula = ?  LIMIT ?, 10`,[DNI,(currentPage - 1) * 10],
+            (err, resultados) => {
+               if (err) reject(err);
+              else resolve(resultados);
+      });
+     });
+    }
 }
 
 export default UserModels;

@@ -28,7 +28,13 @@
                     <td><%= usuario.apellido %></td>
                     <td><%= usuario.cedula %></td>
                     <td><%= usuario.telefono %></td>
-                    <td><%= usuario.cargo %></td>
+                    <% if (usuario.cargo == 1) { %>
+                        <td>Doctor(a)</td>
+                    <% } else if(usuario.cargo == 2){ %>
+                        <td>Secretario(a)</td>
+                    <% }else{ %>
+                        <td>Administrador</td>
+                    <% } %>
                     <td>
                         <div class="div-btn-ver ">
                             <a href="/PerfilUsuario/<%= usuario.id %>" class="btn-ver">Ver</a>

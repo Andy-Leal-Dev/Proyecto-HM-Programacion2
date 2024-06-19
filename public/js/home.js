@@ -25,14 +25,7 @@ document.querySelector('.btn-search-dni').addEventListener('click', async () => 
      if( DNI == undefined || tipo == undefined){
       Warnings.textContent += "ingrese la cedula y su tipo de paciente";
      } else{
-      if(typeof DNI !== 'number'){
-        Warnings.textContent += "Solo valores numericos";
-        console.log(DNI);
-      }else{
-        console.log(tipo);
-        window.location.href = `/SearchPaciente/${tipo}/${DNI}`
-      }
-     
+        window.location.href = `/SearchPaciente/${tipo}/${DNI}/1`
      }
 
 });

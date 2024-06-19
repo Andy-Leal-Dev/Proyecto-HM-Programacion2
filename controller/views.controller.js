@@ -62,17 +62,27 @@ class Views{
         const Rol = Convert.Cargo
         let title = "Pacientes";
         console.log(req.params.dni,req.params.tipo); 
-        this.pacienteModel.getByDniModel(req.params.dni,req.params.tipo) 
-        .then(async (responsePaciente) => {
-            res.render("Paciente.ejs", {
-              Rol,
-              pacientes: responsePaciente,
-              title
+       
+        let CurrentPage = parseInt(req.params.page, 10)
+            this.pacienteModel.getTotalPacientesModel()
+            .then(TotalPage=>{
+                this.pacienteModel.getByDniModel(req.params.dni,req.params.tipo,CurrentPage) 
+                .then(async (responsePaciente) => {
+                    res.render("Paciente.ejs", {
+                      Rol,
+                      pacientes: responsePaciente,
+                      title,
+                      totalPage:TotalPage,
+                      currentPage:CurrentPage
+                    });
+                  })
+                .catch(err => {
+                    return res.status(500).send(err);//En tal caso dira qu hay un error
+                })
+            })
+            .catch(err => {
+                return res.status(500).send("Error obteniendo los pacientes");//En tal caso dira qu hay un error
             });
-          })
-        .catch(err => {
-            return res.status(500).send(err);//En tal caso dira qu hay un error
-        })
     }
 
   
@@ -146,17 +156,18 @@ class Views{
  
     //Vista de Usuarios. Esta vista solo tiene acceso los Admins 
     viewUsuarios(req,res){
-        const token = req.cookies.jwt;//Obtengo el JWt de las cookies
-        const Rol = VerifyTokenConvertId(token);//Convierto ese JWT para obtener el rol de Usuario y asi validar sus vistas
-        //Le pido al modelo todos los Usuarios para mostrarlos en la vista
+        const token = req.cookies.jwt;
+        const Convert = VerifyTokenConvertId(token);
+        const Rol = Convert.Cargo;
+
         let CurrentPage = parseInt(req.params.page, 10)
         let title = "Usuarios";
         this.userModel.getTotalUsuarioModel().then(resTotal=>{
             this.userModel.getUsersModel(CurrentPage).then(responseUser => {
-                res.render("Usuarios.ejs",{ //Si se obtiene me renderisa(Muestra) la vista de Usuarios.ejs
-                    Rol, //Le paso a la vista el rol para validar lo que puede ver y usar
+                res.render("Usuarios.ejs",{ 
+                    Rol, 
                     totalPage:resTotal,
-                    usuarios:responseUser,//Le paso a la vista todos los Usuarios en la base de datos
+                    usuarios:responseUser,
                     currentPage:CurrentPage,
                     title
                 });
@@ -198,6 +209,19 @@ class Views{
             console.log(Convert);
             res.render("Profile_Usuario.ejs",{Rol, usuario:usuarioResponse[0],title});
         })
+        .catch()
+    }
+
+    searchUsuario(req,res){
+        const token = req.cookies.jwt;
+        const Convert = VerifyTokenConvertId(token);
+        const Rol = Convert.Cargo;
+        console.log(req.params.dni); 
+       
+        let CurrentPage = parseInt(req.params.page, 10)
+
+        this.userModel.getByDNIModel(req.params.dni,CurrentPage)
+        .then()
         .catch()
     }
 
