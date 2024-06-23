@@ -22,7 +22,7 @@ document.querySelector('.btn-registrar').addEventListener('click', async()=>{
         
     }
 
-    console.log(data);
+
 
     try {
         const response = await fetch('/api/newConsulta', { //Usando el fetch hago la peticion a la api para Iniciar sesion
@@ -33,16 +33,15 @@ document.querySelector('.btn-registrar').addEventListener('click', async()=>{
         });
 
         if (response.ok) { //Si la peticion es exitosa
-        window.location.href = `/HC/${tipo}/${id}`; //Me redigira a la pagina principal en este caso paciente
+        window.location.href = `/HC/${tipo}/${id}/1`; //Me redigira a la pagina principal en este caso paciente
         } else {
         const error = await response.text(); // en caso de error muestra un error. NOTA: eso lo podemos usar para el aviso de contraseña o usuario incorrecto
-        console.error('Error:', error);
-
+  
 
         //Aqui pones o le estableces que aparezca y muestre que usuario o contraseña incorrecta
 
         }
         } catch (error) {
-          console.error('Error:', error)
+      
         }
 })

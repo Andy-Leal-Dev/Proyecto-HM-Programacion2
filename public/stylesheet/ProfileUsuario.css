@@ -1,3 +1,4 @@
+    
 /*     ----COLORES---
 #4784cd = Botones inactivos
 #335f94 = Cursor sobre el boton
@@ -64,6 +65,8 @@ body{
      border-bottom: 1px solid black;
  }
  .td-campoUser{
+    border-bottom: 1px solid black;
+    text-align: left;
      width: 30%;
      font-weight: bold;
      padding: 10px 15px;

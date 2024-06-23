@@ -7,7 +7,7 @@ class UserModels{
     //peticiona la BD Que obtenga el id, cargo y contraseña del usuario que ingresa el usuario
     getByUserModel(usuario){
         return new Promise((resolve, reject) => {
-        Conexion.query(`select id,password, cargo from usuario where usuario = ?`,[usuario],
+          Conexion.query(`select id,password, cargo from usuario where usuario = ?`,[usuario],
             (err, resultados) => {
                 if (err) reject(err);
                 else resolve(resultados);
@@ -15,34 +15,40 @@ class UserModels{
         });
     }
     //envio de datos a la BD del registro para crear la cuenta
-    signUpUserModel(nombre, apellido, cedula, genero, usuario, password, cargo) {
+    signUpUserModel(nombre, apellido, cedula, Telefono, genero, usuario, password, cargo) {
         return new Promise((resolve, reject) => {
-          Conexion.query(
-            `INSERT INTO usuario (nombre, apellido, cedula, genero, usuario, password, cargo) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-            [nombre, apellido, cedula, genero, usuario, password, cargo],
+          Conexion.query(`select COUNT(*) AS total from usuario where usuario = ?`,[usuario],
             (err, resultados) => {
-              if (err) reject(err);
-              else resolve({ id: resultados.insertId, cargo: cargo });
-            }
-          );
+              console.log(resultados[0].total);
+                if (resultados[0].total == 1){ 
+                  resolve(resultados[0].total)
+                } else {
+                  Conexion.query(
+                    `INSERT INTO usuario (nombre, apellido, cedula, Telefono,genero, usuario, password, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+                    [nombre, apellido, cedula, Telefono, genero, usuario, password, cargo],
+                    (err, resultados) => {
+                      if (err) reject(err);
+                      else resolve({ id: resultados.insertId, cargo: cargo });
+                    }
+                  );
+                }
+            });
+         
         });
       }
-      getUserModel(id){
+    getUserModel(id){
         return new Promise((resolve, reject) => {
         Conexion.query(`select * from usuario WHERE id = ?`,[id],
             (err, resultados) => {
-              console.log(resultados);
                 if (err) reject(err);
                 else resolve(resultados);
             });
         });
     }
-
-
       //Peticion para obtener todos los usuarios que aparecen en la lista (Solo lo puede obtener el admin)
-      getUsersModel(currentPage){
+    getUsersModel(currentPage){
         return new Promise((resolve, reject) => {
-        Conexion.query(`select id, nombre, apellido, cedula, cargo from usuario LIMIT ?, 10`,[(currentPage - 1) * 10],
+        Conexion.query(`select id, nombre, apellido, Telefono, cedula, cargo from usuario LIMIT ?, 10`,[(currentPage - 1) * 10],
             (err, resultados) => {
                 if (err) reject(err);
                 else resolve(resultados);
@@ -54,10 +60,9 @@ class UserModels{
       return new Promise((resolve, reject) => {
       Conexion.query(`select COUNT(*) AS total_records from usuario`,
           (err, resultados) => {
-              if (err){console.log(err); reject(err);}
+              if (err){ reject(err);}
               else{
                 const totalPages = Math.ceil(resultados[0].total_records / 10); 
-                console.log(totalPages);
                 resolve(totalPages);}
           });
       });
@@ -76,7 +81,7 @@ class UserModels{
           });
           
       });
-}
+    }
     getByDNIModel(DNI,currentPage){
         return new Promise((resolve, reject) => {
           Conexion.query(`select id, nombre, apellido, cedula, cargo from usuario where cedula = ?  LIMIT ?, 10`,[DNI,(currentPage - 1) * 10],
@@ -85,6 +90,19 @@ class UserModels{
               else resolve(resultados);
       });
      });
+    }
+
+    deleteUsuarioModel(id) {
+      return new Promise((resolve, reject) => {
+        Conexion.query(
+          `DELETE FROM usuario WHERE id = ?`,
+          [id],
+          (err, resultados) => {
+            if (err){ console.log(err); reject(err);}
+            else resolve(resultados);
+          }
+        );
+      });
     }
 }
 

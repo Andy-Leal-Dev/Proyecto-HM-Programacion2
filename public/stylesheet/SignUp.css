@@ -65,7 +65,7 @@ body{
     width: 100%;
 }
 
-form{
+.form-SignUp{
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -102,14 +102,14 @@ input{
     color: black;
     font-size: 14px;
 }
-#select-genero{
+#DNI, #select-sexo, #select-rol{
     border-radius: 10px;
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid rgb(47, 105, 153);
 }
 
-.btn-login{
+.btn-signup{
 
     margin-top: 30px;
     background-color: #4784cd;
@@ -121,9 +121,25 @@ input{
     text-transform: uppercase;
     cursor: pointer;
 }
-.btn-login:active{
+.btn-signup:active{
 
     background-color: #192a3f;
+}
+
+.Password_NoMatch2, .Password_NoMatch1,.War-name, .War-lastname, .War-User, .War-DNI{
+
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-bottom: 8px;
+}
+
+.War-btnSignUp{
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-top: 8px;
+    text-align: center;
 }
 
 /* Font de LOGO*/

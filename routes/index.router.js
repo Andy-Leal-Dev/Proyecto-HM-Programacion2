@@ -13,10 +13,7 @@ Router.get('/Login' , indexController.viewLogin)
 Router.get('/LogOut' , indexController.logOut)
 //Obtiene la visar para registrarse
 Router.get('/SignUp' , indexController.viewSignUp)
-//Api. Envia los datos para regitrarse
-Router.post('/signUp',indexController.signUpUser)
-//Api. Envia los datos para iniciar sesion
-Router.post('/logIn',indexController.logInUser)
+
 
 
 

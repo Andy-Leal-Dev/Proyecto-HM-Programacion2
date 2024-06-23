@@ -2,28 +2,31 @@
 
 <div class="Container">
     <h1 class="Text_title">Lista de Pacientes</h1>
-    <div class=" div-search-options">
+    <div class="div-search-options">
        <div class="d-flex div-search-check">
-       <div class="div-search-warning">
-        <p id="warning"></p>
-        <div class="d-flex div-search ">
-            <input type="number" id="input-dni" placeholder="Cedula del Paciente">
-            <button class="btn shadow-none btn-search-dni">Buscar</button>
+            <div class="div-search-warning">
+              
+                <div class="d-flex div-search ">
+                    <input type="number" id="input-dni" placeholder="Cedula del Paciente">
+                    <button class="btn shadow-none btn-search-dni">Buscar</button>
+                </div>
+            </div>
+
+            <div class="div-check-options">
+                <input type="checkbox" name="" id="CheckAdulto">
+                <span>Adultos</span>
+                <input type="checkbox" name="" id="CheckPediatrico">
+                <span>Pediatrico</span>
+            </div>
+        </div>              
+        <div class="div-btn-paciente">
+            <a class="btn-add">Agregar</a>
         </div>
-       </div>
-       <div class="div-check-options">
-        <input type="checkbox" name="" id="CheckAdulto">
-        <span>Adultos</span>
-        <input type="checkbox" name="" id="CheckPediatrico">
-        <span>Pediatrico</span>
-       </div>
-       </div>
-        
-        
-       <div class="div-btn-paciente">
-        <a class="btn-add">Agregar</a>
-       </div>
     </div>
+    <div class="div-Warning">
+        <p id="warning"></p>
+    </div>
+    
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -86,10 +89,10 @@
             </div>
             <div class="div-mensaje">
                 <h1>Cual tipo de paciente quiere registrar?</h1>
-            <div class="div-btn-add-paciente">
-                <button class="btn-Paciente-adulto">Paciente Adulto</button>
-                <button class="btn-Paciente-pediatrico">Paciente Pediatrico</button>
-            </div>
+                <div class="div-btn-add-paciente">
+                    <button class="btn-Paciente-adulto">Paciente Adulto</button>
+                    <button class="btn-Paciente-pediatrico">Paciente Pediatrico</button>
+                </div>
             </div>
         </div>
     </div>

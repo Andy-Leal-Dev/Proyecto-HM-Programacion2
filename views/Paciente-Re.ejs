@@ -5,76 +5,123 @@
     <h2 class="Re_HC_RegDatos">Registro de Historia Clinica</h2>
     <% if (tipo == 2) { %>
         <h3 class="h3_RegDatosInfa">Datos del Menor</h3>
-        <label for="name" >Nombres:</label>
-        <input type="text" id="name" class="input-datosPer name_Ped">
-    
-        <label for="lastName" class="label-right">Apellidos:</label>
-        <input type="text" id="lastName" class="input-datosPer last_Ped">
-    
-        <label for="DNI" class="label-DNI">Cedula:</label>
-        <input type="number" id="DNI" class="input-datosPer  DNI_Ped">
-    
-        
-        <label for="Edad" class="label-right">Edad:</label>
-        <input type="number" id="Edad" class="input-datosPer Edad_Ped">
-    
-        <label for="select-sexo" class="label-right">Sexo</label>
-        <select name="sexo" id="select-sexo" class="select-sexo_Ped">
-          <option value="">-- Escojer opcion --</option>
-          <option value="1">Hombre</option>
-          <option value="2">Mujer</option>
-        </select>
+        <div class="divname">
+            <label for="name" >Nombres:</label>
+            <input type="text" id="namePed" maxlength="30" class="input-datosPer name_Ped" name="namePed">
+            <p class="WnamePed"></p>
+        </div>
+        <div class="divlastName">
+            <label for="lastName" class="label-right">Apellidos:</label>
+            <input type="text" id="lastPed" maxlength="30" class="input-datosPer last_Ped" name="lastNamePed">
+            <p class="WlastPed"></p>
+        </div>
+        <div class="divDNI">
+            <label for="DNI" class="label-DNI">Cedula:</label>
+            <input type="number" id="DNIPed" class="input-datosPer  DNI_Ped" name="DNIPed">
+            <p class="WDNIPed"></p>
+        </div>
+        <div class="divEdad">           
+            <label for="Edad" class="label-right">Edad:</label>
+            <input type="number" id="EdadPed" maxlength="3" class="input-datosPer Edad_Ped" name="edadPed">
+            <p class="WedadPed"></p>
+        </div>
+        <div class="divSexo"> 
+            <label for="select-sexoPed" class="label-right">Sexo</label>
+            <select name="sexoPed" id="select-sexo" class="select-sexo_Ped">
+              <option value="">-- Escojer opcion --</option>
+              <option value="1">Hombre</option>
+              <option value="2">Mujer</option>
+            </select>
+        </div>
     
         <h3 class="h3_RegDatosInfa">Datos del Representante</h3>
 
     <% } %>
    
-      
-    <label for="name" >Nombres:</label>
-    <input type="text" id="name" class="input-datosPer name_Ad">
-
-    <label for="lastName" class="label-right">Apellidos:</label>
-    <input type="text" id="lastName" class="input-datosPer lastName_Ad">
-
-    <label for="DNI" class="label-DNI">Cedula:</label>
-    <input type="number" id="DNI" class="input-datosPer DNI_Ad">
-
+    <div class="divname">
+        <label for="name" >Nombres:</label>
+        <input type="text" id="name" maxlength="30" class="input-datosPer name_Ad" name="nameAd">
+        <p class="Wname"></p>
+    </div>
     
-    <label for="Edad" class="label-right">Edad:</label>
-    <input type="number" id="Edad" class="input-datosPer Edad_Ad">
+    <div class="divlastName">
+        <label for="lastName" class="label-right">Apellidos:</label>
+        <input type="text" id="lastName" maxlength="30" class="input-datosPer lastName_Ad" name="lastnameAd">
+        <p class="Wlast"></p>
+    </div>
 
-    <label for="select-sexo" class="label-right">Sexo</label>
-    <select name="sexo" id="select-sexo" class="select-sexo_Ad">
-      <option value="">-- Escojer opcion --</option>
-      <option value="1">Hombre</option>
-      <option value="2">Mujer</option>
-    </select>
+    <div class="divDNI">        
+        <label for="DNI" class="label-DNI">Cedula:</label>
+        <input type="number" id="DNI"  class="input-datosPer DNI_Ad" name="DNIAd" max="30">
+        <p class="WDNI"></p>
+    </div>
+    
+    <div class="divEdad">
+        <label for="Edad" class="label-right">Edad:</label>
+        <input type="number" id="Edad" class="input-datosPer Edad_Ad" name="EdadAd">    
+        <p class="Wedad"></p>
+    </div>
 
-    <label for="tel" class="label-tel">Telefono:</label>
-    <input type="tel" id="tel" class="input-datosPer tel_Ad">
-
-    <label for="ocupacion" class="label-right">Ocupación:</label>
-    <input type="text" id="ocupacion" class="input-datosPer ocup_Ad">
+    <div class="divSexo">
+        <label for="select-sexo" class="label-right">Sexo</label>
+        <select name="sexo" id="select-sexo" class="select-sexo_Ad">
+          <option value="">-- Escojer opcion --</option>
+          <option value="1">Hombre</option>
+          <option value="2">Mujer</option>
+        </select>
+    </div>
+    <div class="divOcup">
+        <label for="ocupacion" class="label-right">Ocupación:</label>
+        <input type="text" id="ocupacion" maxlength="100" class="input-datosPer ocup_Ad" name="Ocup">
+        <p class="WOcup"></p>
+    </div>
+    <div class="divtel">
+        <label for="tel" class="label-tel">Telefono:</label>
+        <input type="tel" id="tel" maxlength="15" class="input-datosPer tel_Ad" name="TelAd">    
+        <p class="Wtel"></p>
+    </div>
 
     <% if (tipo == 2) { %>
         <% } else { %>
             
-        <label for="direccion" class="label-dir">Direccion Completa:</label>
-        <input type="text" id="Direccion" class="input-datosPer Direc_Ad">
-        <label for="Info">Informacion Adicional:</label>
-        <input type="text" id="Info" class="input-datosPer Info_Ad">
-        <label for="emergencia" >Avisar en Caso de Emergencia:</label>
-        <input type="text" id="emergencia" class="input-datosPer emer_Ad">
+            <div class="divDirec">
+                <label for="direccion" class="label-dir">Direccion Completa:</label>
+                <input type="text" id="Direccion" class="input-datosPer Direc_Ad" name="DirecAd">
+            </div>
+            <div class="divInfo">
+                <label for="Info">Informacion Adicional:</label>
+                <input type="text" id="Info" class="input-datosPer Info_Ad" name="InfoAd">
+            </div>
+            
+            <div class="divemerg">
+                <label for="emergencia" >Avisar en Caso de Emergencia:</label>
+                <input type="text" id="emergencia" maxlength="60" class="input-datosPer emer_Ad" name="Emerg">
+                <p class="Wemer"></p>
+            </div>
+            
         <% } %>
   
-    <label for="parentesco" >Parentesco:</label>
-    <input type="text" id="parentesco" class="input-datosPer Paren_Ad">
-   
-    <label for="tel-parentesco" class="label-right">Telefono:</label>
-    <input type="tel" id="tel-parentesco" class="input-datosPer tel-Ad">
+        <div class="divParen">
+            <label for="parentesco" >Parentesco:</label>
+            <input type="text" id="parentesco" maxlength="30" class="input-datosPer Paren_Ad" name="Paren">
+            <p class="WParen"></p>
+        </div>
+        
+        <% if (tipo == 2) { %>
+            <% } else { %>
 
-    <label for="di-parentesco">Direccion Completa:</label>
-    <input type="text" id="direccion" class="input-datosPer Dir_Paren_Ad">
+        <div class="divtel">
+            <label for="tel-parentesco" class="label-right">Telefono:</label>
+            <input type="tel" id="tel-parentesco" maxlength="15" class="input-datosPer tel-Ad" name="TelPar">
+            <p class="WtelPeren"></p>
+        </div>
+
+        <% } %>
+
+        <div class="divDirec">
+            <label for="di-parentesco">Direccion Completa:</label>
+            <input type="text" id="direccion" class="input-datosPer Dir_Paren_Ad" name="DirePar">
+        </div>
 
 
     
@@ -148,9 +195,13 @@
     <% } %>
 
 </form>
-
+<div class="div-WarRePacientes">
+    <p class="WarRePacientes"></p>
+</div>
 <div class="button">
     <button type="button" class="btn-registro">Registrar</button>
+   
 </div>
+
 
 <script src="/js/reg_paciente.js"></script>

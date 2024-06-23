@@ -4,6 +4,7 @@
 rgb(232, 235, 245) = Login y Registro
 */
 
+
 *{
     padding: 0px;
     margin: 0px;
@@ -22,10 +23,13 @@ body{
 
 
 .td-consulta{
+    text-align: left;
     width: 30%;
     font-weight: bold;
+    border-bottom: 1px solid black;
 }
-#td-DatosCols{
+.td-DatosCols{
+    text-align: left;
     border-bottom: 1px solid black;
     font-family: Arial, Helvetica, sans-serif;
     padding: 15px 0;

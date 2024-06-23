@@ -65,12 +65,12 @@ body{
 
 .h3_RegDatosInfa{
 
-    text-align: center;
+    text-align: left;
     color: #192a3f;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 20px 42% 20px 42%; 
+    padding: 20px 60% 20px 0;
+} 
 
-}
 .table-Antec{
     display: flex;
     flex-wrap: wrap;
@@ -89,49 +89,57 @@ body{
     margin: 1px 15px 0px 20px;
     margin-bottom: 10px;
 }
-
+p{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
 label{
     font-family: Arial, Helvetica, sans-serif,Arial;
     font-size: 15px;
-    color: rgb(0, 0, 0);
-    padding: 7px 2% 0 0;
 }
 
-#name,#lastName{
-    width: 36.6%;
-}
-#tel, #ocupacion, #parentesco, #tel-parentesco{
-    width: 35.6%;
+.divname, .divlastName{
+ width:45%;
+ margin: 0 15px 10px 15px;
 }
 
-#DNI, #select-sexo{
-
-    width: 28.5%;
-}
-#direccion{
-    width: 75.4%;
+#name, #namePed, #lastName, #lastPed, #Info, #tel,#emergencia, #direccion, #ocupacion, #parentesco, #tel-parentesco, #DNI, #DNIPed, #Direccion, #select-sexo,#Edad, #EdadPed{
+    width: 100%;
+    margin-bottom: 3px;
 }
 
-.label-DNI {
-    padding:  7px 4.2% 0 0;
+.divDNI, .divSexo{
+    width: 34%;
+    margin: 0 10px 10px 20px;
 }
 
-.label-right{
-    padding: 7px 1% 0 2%;
+.divemerg{
+    width: 60%;
+    margin: 0 10px 10px 20px;
+}
+.divtel, .divOcup{
+    width: 40%;
+    margin: 0 10px 10px 20px;
 }
 
-.label-dir{
-    padding: 7px 4% 0 0;
-}
-.label-tel{
-    padding:  7px 2.7% 0 0;
-}
-#Edad{
-    width: 70px;
+.divParen{
+    width: 40%;
+    margin: 0 10px 10px 20px;
 }
 
-#emergencia{
-    width: 62.5%;
+.divDirec, .divInfo{
+    width: 95%;
+    margin: 0 10px 10px 20px;
+}
+
+.divEdad{
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 15px 0 15px;
+    align-content: center;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -139,17 +147,17 @@ input[type="number"]::-webkit-outer-spin-button{
 
     -webkit-appearance: none;
 }
+.WarRePacientes{
+
+    font-size: 20px;
+}
 
 .input-datosPer{
     padding: 8px 10px;
     border: 1px solid rgb(47, 105, 153);
     border-radius: 10px;
-    margin-bottom: 10px;
     background-color: white;
-    color: black;
     font-size: 14px;
-    width: 73.4%;
-    height: 35px;
 }
 #select-sexo {
     border-radius: 10px;
@@ -157,6 +165,16 @@ input[type="number"]::-webkit-outer-spin-button{
     margin-bottom: 12px;
     border: 1px solid rgb(47, 105, 153);
 }
+
+.div-WarRePacientes{
+
+    text-align: center;
+    padding-top: 30px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
+
 
 .button{
     width: 100%;
@@ -181,6 +199,11 @@ input[type="number"]::-webkit-outer-spin-button{
     background-color: #192a3f;
 }
 
+.div-direcPren{
+    width: 100%; 
+    display: flex; 
+}
+
 /* Font de LOGO*/
 
 h1{
@@ -188,28 +211,9 @@ h1{
     color: white;
     }
 
-
-@media(max-with:900px){
-
-    body{
-        padding: 30px;
-    }
-    .header{
-        padding: 20px 20px;
-    
-    }
-    
-    #name,#lastName{
-        width: 100px;
-    }
-    
-    .form{
-        width: 100px;
-        
-    }
-
-    .forget-password{
-        flex-direction: column;
-    }
-
+.WarRePaciente{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    padding: 5px 0 5px 0;
 }

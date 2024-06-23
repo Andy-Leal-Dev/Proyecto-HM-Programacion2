@@ -11,7 +11,9 @@ body{
     justify-content: center;
     height: 100vh; 
 }
-
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 h2{
 
@@ -29,7 +31,7 @@ color: white;
 
 
 .Container{
-    width: 60%;
+    width: 80%;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -63,28 +65,25 @@ color: white;
 }
 .div-search-options{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
     align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;  
 }
 
 .div-search{
-    padding: 10px 10px;
+    padding: 12px 11px;
     border: 1px solid rgb(47, 105, 153);
     border-radius: 10px;
     background-color: white;
     color: black;
     font-size: 17px;
-    gap: 5px
+    width: 225px;
 }
 
 .div-search input{
     border: none;
     outline: none;
+    width: 150px;
 }
 
 .div-search button{
@@ -110,7 +109,7 @@ color: white;
 
 }
 .table{
-    width: 100%;
+    width: 85%;
     border: #4784cd 2px solid;
     border-radius: 12px;
     padding: 20px;
@@ -126,7 +125,7 @@ tbody{
 th{
     font-size: 20px;
 }
-td,tr{
+td{
     text-align: center;
     padding: 20px 30px;
     font-size: 15px;
@@ -146,6 +145,12 @@ td,tr{
 }
 
 .div-btn-paciente{
+    display: flex;
+    justify-content: flex-end;
+    width: 45%;
+}
+
+.btn-add{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #4784cd;
     padding: 10px;
@@ -154,7 +159,16 @@ td,tr{
     border-radius: 12px;
     color: white;
     cursor: pointer;
-    margin-right: 25px;
+    justify-content: flex-end;
+}
+
+.div-Warning{
+ display: flex;
+ color: red;
+ font-family: Arial, Helvetica, sans-serif;
+ height: 20px;
+ font-size: 15px;
+ margin-bottom: 20px
 }
 .div-add-paciente{
     padding: 20px 30px 30px 30px;

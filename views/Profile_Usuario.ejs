@@ -7,7 +7,7 @@
         <button class="btn-UserDelete">Eliminar</button>
     </div>
     <%} %>
-        <div class="DataUser">
+        <div class="DataUser" >
             <table class="tableDatosUser">
                 <tr>
                     <td class="td-campoUser">Usuario</td>
@@ -24,6 +24,10 @@
                 <tr>
                     <td class="td-campoUser">Cedula</td>
                     <td class="td-DatosPer"><%= usuario.cedula %></td>
+                </tr>
+                <tr>
+                    <td class="td-campoUser">Telefono</td>
+                    <td class="td-DatosPer"><%= usuario.Telefono %></td>
                 </tr>
                 <tr>
                     <td class="td-campoUser">Sexo</td>
@@ -95,6 +99,23 @@
                 <div class="div-btn-UpClo">
                     <button class="bth-UptData">Actualizar</button>
                     <button class="bth-Close">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="PopUp">
+            <div class="div-delete-usario" data-id="<%= usuario.id %>">
+           
+                <div class="div-btn-exit">
+                    <button type="button"   id="btn-exit">X</button>
+                </div>
+                <div class="div-mensaje">
+                    <h1>Estas seguro que quiere borrar este usuario?</h1>
+                <div class="div-btn-delete-paciente">
+                    <button class="btn-decline-delete">Cancelar</button>
+                    <button class="btn-acept-Usuario">Confirmar</button>
+                </div>
                 </div>
             </div>
         </div>

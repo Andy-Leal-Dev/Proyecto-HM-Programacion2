@@ -19,36 +19,56 @@
         
             </nav>
     </header>
-    <form> 
-        <h2>Registro</h2>
-        <label for="name">Nombre</label>
-        <input type="text" id="name">
+    <form class="form-SignUp"> 
+      <h2>Registro</h2>
+      <label for="name">Nombre</label>
+      <input type="text" id="name" name="nameUser">
+      <p class="War-name"></p>
 
-        <label for="lastName">Apellido</label>
-        <input type="text" id="lastName">
+      <label for="lastName">Apellido</label>
+      <input type="text" id="lastName" name="lastNameUser">
+      <p class="War-lastname"></p>
 
-        <label for="DNI">Cedula</label>
-        <input type="number" id="DNI">
+      <label for="DNI">Cedula</label>
+      <input type="number" id="DNI" name="DNIUser">
+      <p class="War-DNI"></p>
 
-        <label for="select-genero">Genero</label>
-        <select name="Genero" id="select-genero">
-          <option value="">-- Escojer opcion --</option>
-          <option value="1">Hombre</option>
-          <option value="2">Mujer</option>
-        </select>
+      <label for="tel">Telefono</label>
+      <input type="tel" id="tel" name="telUser">
 
-        <label for="username">Usuario</label>
-        <input type="text" id="username">
+      <label for="select-sexo">Genero</label>
+      <select name="Genero" id="select-sexo" name="Sexo">
+        <option value="">-- Escojer opcion --</option>
+        <option value="1">Hombre</option>
+        <option value="2">Mujer</option>
+      </select>
 
-        <label for="password">Contraseña</label>
-        <input type="password" id="password">
-        <p class="Password_NoMatch1"></p>
-        <label for="passwordConfirm">Confirmar contraseña</label>
-        <input type="text" id="passwordConfirm">
-        <p class="Password_NoMatch2"></p>
+      
+      <label for="select-rol">Cargo</label>
+      <select name="Rol" id="select-rol" name="Rol">
+        <option value="">-- Escojer opcion --</option>
+        <option value="1">Doctor</option>
+        <option value="2">Secretario</option>
+      </select>
 
-        <button type="button" class="btn-signup">Registrar</button>
-    </form>
+      <label for="username">Usuario</label>
+      <input type="text" id="username" name="User">
+      <p class="War-User"></p>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="PasswordUser">
+      <p class="Password_NoMatch1"></p>
+
+      <label for="passwordConfirm">Confirmar contraseña</label>
+      <input type="password" id="passwordConfirm" name="PasswordConfirmUser">
+
+      <p class="Password_NoMatch2"></p>
+
+      <button type="button" class="btn-signup">Registrar</button>
+      <p class="War-btnSignUp"></p>
+  </form>
+
+  <script src="/js/signup.js"></script>
 
     <script src="/js/signup.js"></script>
 </body>

@@ -1,320 +1,337 @@
 <%- include("./template/header"); %>
 
-    <div class="Container-Pefil-paciente" data-id="<%= paciente.id_paciente %>">
-        <h3 class="h3DatosPerson">Historia Clinica</h3>
-    <div class="div-btn-edit_delete">
-        <a href="/Registro_Consulta/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>" class="btn-add-consulta">Añadir Consulta</a>
-       
-        <% if (Rol === 0) { %>
-            <button class="btn-Edit">Editar</button>
-            <button class="btn-Delete">Eliminar</button>
-        <% } %>
-        
-    </div>
-        <div class="DataPer">
-            <table class="tableDatosPer">
-                <% if(paciente.tipo_paciente == 2){%>
-                    <tr>
-                        <td class="td-campo">Nombres Del Pediatrico</td>
-                        <td class="td-DatosPer"><%= paciente.Pediatrico_Nombres %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Apellidos  Del Pediatrico</td>
-                        <td class="td-DatosPer"><%= paciente.Pediatrico_Apellidos %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Cedula  Del Pediatrico</td>
-                        <td class="td-DatosPer"><%= paciente.Pediatrico_Cedula %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Edad  Del Pediatrico</td>
-                        <td class="td-DatosPer"><%= paciente.Pediatrico_Edad %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Sexo  Del Pediatrico</td>
-                       
-                        <% if (paciente.Pediatrico_Sexo == 1) { %>
-                            <td class="td-DatosPer">Hombre</td>
-                        <% } else { %>
-                            <td class="td-DatosPer">Mujer</td>
-                        <% } %>
-                    </tr>
-                    
-                <% } %>
+<div class="Container-Pefil-paciente" data-id="<%= paciente.id_paciente %>">
+    <h3 class="h3DatosPerson">Historia Clinica</h3>
+
+<div class="div-btn-edit_delete">
+
+    <% if(Rol === 2){%>
+        <%} else{ %>
+            <a href="/Registro_Consulta/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>" class="btn-add-consulta">Añadir Consulta</a>
+        <%}%>
+   
+   
+    <% if (Rol === 0) { %>
+        <button class="btn-Edit">Editar</button>
+        <button class="btn-Delete">Eliminar</button>
+    <% } %>
+    
+</div>
+    <div class="DataPer">
+        <table class="tableDatosPer">
+            <% if(paciente.tipo_paciente == 2){%>
                 <tr>
-                    <td class="td-campo">Nombres</td>
-                    <td class="td-DatosPer"><%= paciente.Nombres %></td>
+                    <td class="td-campo">Nombres Del Pediatrico</td>
+                    <td class="td-DatosPer"><%= paciente.Pediatrico_Nombres %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Apellidos</td>
-                    <td class="td-DatosPer"><%= paciente.Apellidos %></td>
+                    <td class="td-campo">Apellidos  Del Pediatrico</td>
+                    <td class="td-DatosPer"><%= paciente.Pediatrico_Apellidos %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Cedula</td>
-                    <td class="td-DatosPer"><%= paciente.Cedula %></td>
+                    <td class="td-campo">Cedula  Del Pediatrico</td>
+                    <td class="td-DatosPer"><%= paciente.Pediatrico_Cedula %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Edad</td>
-                    <td class="td-DatosPer"><%= paciente.Edad %></td>
+                    <td class="td-campo">Edad  Del Pediatrico</td>
+                    <td class="td-DatosPer"><%= paciente.Pediatrico_Edad %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Sexo</td>
+                    <td class="td-campo">Sexo  Del Pediatrico</td>
                    
-                    <% if (paciente.Sexo == 1) { %>
+                    <% if (paciente.Pediatrico_Sexo == 1) { %>
                         <td class="td-DatosPer">Hombre</td>
                     <% } else { %>
                         <td class="td-DatosPer">Mujer</td>
                     <% } %>
                 </tr>
                 
-                <tr>
-                    <td class="td-campo">Ocupacion</td>
-                    <td class="td-DatosPer"><%= paciente.Ocupacion %></td>
-                </tr>
-               <% if(paciente.tipo_paciente == 2){%>
-                <% } else{%>
-                    <tr>
-                        <td class="td-campo">Telefono</td>
-                        <td class="td-DatosPer"><%= paciente.Telefono %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Direccion Completa</td>
-                        <td class="td-DatosPer"><%= paciente.Direccion_Completa %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Indformacion adicional</td>
-                        <td class="td-DatosPer"><%= paciente.Informacion_Adicional %></td>
-                    </tr>
-                    <tr>
-                        <td class="td-campo">Avisar en caso de emergencia</td>
-                        <td class="td-DatosPer"><%= paciente.Emergencia %></td>
-                    </tr>
-                <%}%>
-                <tr>
-                    <td class="td-campo">Parentesco</td>
-                    <td class="td-DatosPer"><%= paciente.Parentesco %></td>
-                </tr>
+            <% } %>
+            <tr>
+                <td class="td-campo">Nombres</td>
+                <td class="td-DatosPer"><%= paciente.Nombres %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Apellidos</td>
+                <td class="td-DatosPer"><%= paciente.Apellidos %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Cedula</td>
+                <td class="td-DatosPer"><%= paciente.Cedula %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Edad</td>
+                <td class="td-DatosPer"><%= paciente.Edad %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Sexo</td>
+               
+                <% if (paciente.Sexo == 1) { %>
+                    <td class="td-DatosPer">Hombre</td>
+                <% } else { %>
+                    <td class="td-DatosPer">Mujer</td>
+                <% } %>
+            </tr>
+            
+            <tr>
+                <td class="td-campo">Ocupacion</td>
+                <td class="td-DatosPer"><%= paciente.Ocupacion %></td>
+            </tr>
+           <% if(paciente.tipo_paciente == 2){%>
+            <% } else{%>
                 <tr>
                     <td class="td-campo">Telefono</td>
-                    <td class="td-DatosPer"><%= paciente.Telefono_Parentesco %></td>
+                    <td class="td-DatosPer"><%= paciente.Telefono %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Direccion</td>
-                    <td class="td-DatosPer"><%= paciente.Direccion_Parentesco %></td>
+                    <td class="td-campo">Direccion Completa</td>
+                    <td class="td-DatosPer"><%= paciente.Direccion_Completa %></td>
                 </tr>
                 <tr>
-                    <td class="td-campo">Antecedentes</td>
-                    <td class="td-DatosPer"><%= paciente.Personales %><%= paciente.Familires %><%= paciente.Pediatricos %></td>
+                    <td class="td-campo">Indformacion adicional</td>
+                    <td class="td-DatosPer"><%= paciente.Informacion_Adicional %></td>
                 </tr>
-
-            </table>
-        </div>
-
-        <div class="DataConsulta">
-            <table class="table_DatosConsulta">              
                 <tr>
-                    <th class="th_Consulta">ID</th>
-                    <th class="th_Consulta">Fecha</th>
-                    <th class="th_Consulta">Motivo</th>
+                    <td class="td-campo">Avisar en caso de emergencia</td>
+                    <td class="td-DatosPer"><%= paciente.Emergencia %></td>
                 </tr>
-                <% if (consultas.length > 0) { %>
-                    <% consultas.forEach(consulta => { %>
-                        <tr>
+            <%}%>
+            <tr>
+                <td class="td-campo">Parentesco</td>
+                <td class="td-DatosPer"><%= paciente.Parentesco %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Telefono</td>
+                <td class="td-DatosPer"><%= paciente.Telefono_Parentesco %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Direccion</td>
+                <td class="td-DatosPer"><%= paciente.Direccion_Parentesco %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Antecedentes Personales</td>
+                <td class="td-DatosPer"><%= paciente.Personales %><%= paciente.Familires %><%= paciente.Pediatricos %></td>
+            </tr>
+            <tr>
+                <td class="td-campo">Antecedentes Familires</td>
+                <td class="td-DatosPer"><%= paciente.Familires %></td>
+            </tr>
+            <% if(paciente.tipo_paciente == 2){%>
+                <tr>
+                    <td class="td-campo">Antecedentes Pediatrico</td>
+                    <td class="td-DatosPer"><%= paciente.Pediatricos %></td>
+                </tr>
+            <% } %>
+            
 
-                            <td><%= consulta.id %></td>
-                            <td><%= consulta.fecha.toLocaleDateString() %></td>
-                            <td><%= consulta.motivo_consulta %></td>
-                            <td><a href="/Consulta/<%= consulta.id %>" class="btn-verConsulta">Ver</a></td>
-                        </tr>
-                        <% })%>
-                    
-                <% } else { %>
-                    <tr>
-                        <td colspan="2">No se encontraron pacientes</td>
-                    </tr>
-                <% } %>
-           
-            </table>
+        </table>
+    </div>
 
-        </div>
-        <div id="PopUp">
-            <div class="div-delete-paciente" >
-           
-                <div class="div-btn-exit">
-                    <button type="button"   id="btn-exit">X</button>
-                </div>
-                <div class="div-mensaje">
-                    <h1>Estas seguro que quiere borrar la Historia clinica?</h1>
-                <div class="div-btn-delete-paciente">
-                    <button class="btn-decline">Cancelar</button>
-                    <button class="btn-acept">Confirmar</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-setUser">
-            <div class="SetProfile">
-                <table>
-                    <% if(paciente.tipo_paciente == 2){%>
-                        <tr>
-                            <th class="th-DataUser">
-                                <label for="" class="label-setUser">Nombres Del Pediatrico</label>
-                            </th>
-                            <th class="th-DataUser">
-                                <input type="text" class="input-setUser" placeholder="<%= paciente.Pediatrico_Nombres %>">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="th-DataUser">
-                                <label for="" class="label-setUser">Apellidos Del Pediatrico</label>
-                            </th>
-                            <th class="th-DataUser">
-                                <input type="text" class="input-setUser" placeholder="<%= paciente.Pediatrico_Apellidos %>">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="th-DataUser">
-                                <label for="" class="label-setUser">Cedula Del Pediatrico</label>
-                            </th>
-                            <th class="th-DataUser">
-                                <input type="number" class="input-setUser" placeholder="<%= paciente.Pediatrico_Cedula %>">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="th-DataUser">
-                                <label for="" class="label-setUser">Edad Del Pediatrico</label>
-                            </th>
-                            <th class="th-DataUser">
-                                <input type="number" class="input-setUser" placeholder="<%= paciente.Pediatrico_Edad %>">
-                            </th>
-                        </tr>    
-                    <% } %>
+    <div class="DataConsulta">
+        <table class="table_DatosConsulta">              
+            <tr>
+                <th class="th_Consulta">ID</th>
+                <th class="th_Consulta">Fecha</th>
+                <th class="th_Consulta">Motivo</th>
+            </tr>
+            <% if (consultas.length > 0) { %>
+                <% consultas.forEach(consulta => { %>
                     <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Nombres</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Nombres %>">
-                        </th>
+
+                        <td><%= consulta.id %></td>
+                        <td><%= consulta.fecha.toLocaleDateString() %></td>
+                        <td><%= consulta.motivo_consulta %></td>
+                        <td><a href="/Consulta/<%= consulta.id %>" class="btn-verConsulta">Ver</a></td>
                     </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Apellidos</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Apellidos %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Cedula</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="number" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Edad</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="number" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Telefono</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="number" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
+                    <% })%>
                 
-                    <% if(paciente.tipo_paciente == 2){%>
-                        <% } else{%>
-                            <tr>
-                                <th class="th-DataUser">
-                                    <label for="" class="label-setUser">Direccion Completa</label>
-                                </th>
-                                <th class="th-DataUser">
-                                    <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="th-DataUser">
-                                    <label for="" class="label-setUser">Indformacion adicional</label>
-                                </th>
-                                <th class="th-DataUser">
-                                    <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="th-DataUser">
-                                    <label for="" class="label-setUser">Avisar en caso de emergencia</label>
-                                </th>
-                                <th class="th-DataUser">
-                                    <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                                </th>
-                            </tr>
-                        <%}%>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Ocupacion</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Parentesco</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Telefono Parentesco</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="th-DataUser">
-                            <label for="" class="label-setUser">Direccion</label>
-                        </th>
-                        <th class="th-DataUser">
-                            <input type="text" class="input-setUser" placeholder="<%= paciente.Cedula %>">
-                        </th>
-                    </tr>
-                    
-                    
-                </table>
-                <div class="div-btn-UpClo">
-                    <button class="bth-UptData">Actualizar</button>
-                    <button class="bth-Close">Cerrar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="Pages">
-            <% if (currentPage > 1) { %>
-                <div class="div-btn-ver ">
-                    <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage - 1 %>" class="btn-ver">Anterior</a>
-                </div>
-              <% } %>
-          
-              Página <%= currentPage %> de <%= totalPage %>
-          
-              <% if (currentPage < totalPage) { %>
-                
-                <div class="div-btn-ver ">
-                    <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage + 1 %>" class="btn-ver">Siguiente</a>
-                </div>
-              <% } %>
-        </div>
+            <% } else { %>
+                <tr>
+                    <td colspan="2">No se encontraron pacientes</td>
+                </tr>
+            <% } %>
+       
+        </table>
 
     </div>
+    <div id="PopUp">
+        <div class="div-delete-paciente" >
+       
+            <div class="div-btn-exit">
+                <button type="button"   id="btn-exit">X</button>
+            </div>
+            <div class="div-mensaje">
+                <h1>Estas seguro que quiere borrar la Historia clinica?</h1>
+            <div class="div-btn-delete-paciente">
+                <button class="btn-decline">Cancelar</button>
+                <button class="btn-acept">Confirmar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-setPacientes">
+        <div class="SetPacientes">
+            <table>
+                <% if(paciente.tipo_paciente == 2){%>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setPaciente">Nombres Del Pediatrico</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setPaciente" placeholder="<%= paciente.Pediatrico_Nombres %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setPaciente">Apellidos Del Pediatrico</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="text" class="input-setPaciente" placeholder="<%= paciente.Pediatrico_Apellidos %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setPaciente">Cedula Del Pediatrico</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="number" class="input-setPaciente" placeholder="<%= paciente.Pediatrico_Cedula %>">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="th-DataUser">
+                            <label for="" class="label-setPaciente">Edad Del Pediatrico</label>
+                        </th>
+                        <th class="th-DataUser">
+                            <input type="number" class="input-setPaciente" placeholder="<%= paciente.Pediatrico_Edad %>">
+                        </th>
+                    </tr>    
+                <% } %>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Nombres</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Nombres %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Apellidos</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Apellidos %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Cedula</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="number" class="input-setPaciente" placeholder="<%= paciente.Cedula %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Edad</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="number" class="input-setPaciente" placeholder="<%= paciente.Edad %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Telefono</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="number" class="input-setPaciente" placeholder="<%= paciente.Telefono %>">
+                    </th>
+                </tr>
+            
+                <% if(paciente.tipo_paciente == 2){%>
+                    <% } else{%>
+                        <tr>
+                            <th class="th-DataUser">
+                                <label for="" class="label-setPaciente">Direccion Completa</label>
+                            </th>
+                            <th class="th-DataUser">
+                                <input type="text" class="input-setPaciente" placeholder="<%= paciente.Direccion_Completa %>">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="th-DataUser">
+                                <label for="" class="label-setPaciente">Informacion adicional</label>
+                            </th>
+                            <th class="th-DataUser">
+                                <input type="text" class="input-setPaciente" placeholder="<%= paciente.Informacion_Adicional %>">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="th-DataUser">
+                                <label for="" class="label-setPaciente">Avisar en caso de emergencia</label>
+                            </th>
+                            <th class="th-DataUser">
+                                <input type="text" class="input-setPaciente" placeholder="<%= paciente.Emergencia %>">
+                            </th>
+                        </tr>
+                    <%}%>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Ocupacion</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Ocupacion %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Parentesco</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Parentesco %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Telefono Parentesco</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Telefono_Parentesco %>">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="th-DataUser">
+                        <label for="" class="label-setPaciente">Direccion</label>
+                    </th>
+                    <th class="th-DataUser">
+                        <input type="text" class="input-setPaciente" placeholder="<%= paciente.Direccion_Parentesco %>">
+                    </th>
+                </tr>
+                
+                
+            </table>
+            <div class="div-btn-UpClo">
+                <button class="bth-UptData">Actualizar</button>
+                <button class="bth-Close">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="Pages">
+        <% if (currentPage > 1) { %>
+            <div class="div-btn-ver ">
+                <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage - 1 %>" class="btn-ver">Anterior</a>
+            </div>
+          <% } %>
+      
+          Página <%= currentPage %> de <%= totalPage %>
+      
+          <% if (currentPage < totalPage) { %>
+            
+            <div class="div-btn-ver ">
+                <a href="/HC/<%= paciente.tipo_paciente %>/<%= paciente.id_paciente %>/<%= currentPage + 1 %>" class="btn-ver">Siguiente</a>
+            </div>
+          <% } %>
+    </div>
+
+</div>
     <script src="/js/profilePaciente.js"></script>

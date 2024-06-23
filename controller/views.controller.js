@@ -13,7 +13,8 @@ class Views{
         this.viewProfilePaciente = this.viewProfilePaciente.bind(this);
         this.viewConsulta = this.viewConsulta.bind(this);
         this.viewProfileUsuario = this.viewProfileUsuario.bind(this);
-        this.viewProfile = this.viewProfile.bind(this)
+        this.viewProfile = this.viewProfile.bind(this);
+        this.searchUsuario = this.searchUsuario.bind(this);
     }
 
 
@@ -61,7 +62,6 @@ class Views{
         const Convert = VerifyTokenConvertId(token);
         const Rol = Convert.Cargo
         let title = "Pacientes";
-        console.log(req.params.dni,req.params.tipo); 
        
         let CurrentPage = parseInt(req.params.page, 10)
             this.pacienteModel.getTotalPacientesModel()
@@ -107,16 +107,13 @@ class Views{
                     })
                 })
                 .catch(err => {
-                    console.log(err);
                     return res.status(500).send("Error obteniendo productos");
                 });
             }).catch(err => {
-                console.log(err);
                 return res.status(500).send("Error obteniendo productos");
             });
         })
         .catch(err => {
-        console.log(err);
 
             return res.status(500).send("Error obteniendo productos");
         });
@@ -141,7 +138,7 @@ class Views{
         const Rol = Convert.Cargo
         let title = "Consulta";
         this.consultaModel.getConsulta(id).then(responseConsulta=>{
-            console.log(responseConsulta);
+    
             res.render('ShowConsulta.ejs',{
                 Rol, 
                 consulta:responseConsulta[0],
@@ -205,8 +202,6 @@ class Views{
         this.userModel.getUserModel(id)
      
         .then(usuarioResponse=>{
-            console.log(usuarioResponse);
-            console.log(Convert);
             res.render("Profile_Usuario.ejs",{Rol, usuario:usuarioResponse[0],title});
         })
         .catch()
@@ -216,13 +211,26 @@ class Views{
         const token = req.cookies.jwt;
         const Convert = VerifyTokenConvertId(token);
         const Rol = Convert.Cargo;
-        console.log(req.params.dni); 
-       
+        let title = "Mi perfil";
         let CurrentPage = parseInt(req.params.page, 10)
 
-        this.userModel.getByDNIModel(req.params.dni,CurrentPage)
-        .then()
-        .catch()
+        this.userModel.getTotalUsuarioModel().then(resTotal=>{
+            this.userModel.getByDNIModel(req.params.dni, CurrentPage).then(responseUser => {
+                res.render("Usuarios.ejs",{ 
+                    Rol, 
+                    totalPage:resTotal,
+                    usuarios:responseUser,
+                    currentPage:CurrentPage,
+                    title
+                });
+            })
+            .catch(err => {
+                return res.status(500).send("Error obteniendo los usuarios");
+            });
+        }).catch(err => {
+            return res.status(500).send("Error obteniendo El total de usuarios");
+        });
+        
     }
 
 

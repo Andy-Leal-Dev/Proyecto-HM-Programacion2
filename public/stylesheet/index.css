@@ -131,6 +131,10 @@ input{
     background-color: #192a3f;
 }
 
+#warning{
+    color: red;
+    text-align: center;
+}
 .forget-password{
     display: flex;
     justify-content:center;

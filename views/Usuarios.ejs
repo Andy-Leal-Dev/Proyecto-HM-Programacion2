@@ -2,10 +2,11 @@
 
 <div class="Container">
     <h1 class="Text_title">Lista del Personal</h1>
+    <p id="warning"></p>
     <div class=" div-search-options">
         <div class="div-search ">
-            <input type="text" placeholder="Cedula del Personal">
-            <button class="btn shadow-none">Buscar</button>
+            <input id="input-dni" type="text" placeholder="Cedula del Personal">
+            <button class="btn shadow-none btn-search">Buscar</button>
         </div>
        <div>
        </div>
@@ -22,26 +23,33 @@
             </tr>
         </thead>
         <tbody>
-            <% usuarios.forEach(usuario => { %>
-                <tr>
-                    <td><%= usuario.nombre %></td>
-                    <td><%= usuario.apellido %></td>
-                    <td><%= usuario.cedula %></td>
-                    <td><%= usuario.telefono %></td>
-                    <% if (usuario.cargo == 1) { %>
-                        <td>Doctor(a)</td>
-                    <% } else if(usuario.cargo == 2){ %>
-                        <td>Secretario(a)</td>
-                    <% }else{ %>
-                        <td>Administrador</td>
-                    <% } %>
-                    <td>
-                        <div class="div-btn-ver ">
-                            <a href="/PerfilUsuario/<%= usuario.id %>" class="btn-ver">Ver</a>
-                        </div>
-                    </td>
-                </tr>
-                <% })%>
+           
+                <% if (usuarios.length > 0) { %>
+                    <% usuarios.forEach(usuario => { %>
+                        <tr>
+                            <td><%= usuario.nombre %></td>
+                            <td><%= usuario.apellido %></td>
+                            <td><%= usuario.cedula %></td>
+                            <td><%= usuario.Telefono %></td>
+                            <% if (usuario.cargo == 1) { %>
+                                <td>Doctor(a)</td>
+                            <% } else if(usuario.cargo == 2){ %>
+                                <td>Secretario(a)</td>
+                            <% }else{ %>
+                                <td>Administrador</td>
+                            <% } %>
+                            <td>
+                                <div class="div-btn-ver ">
+                                    <a href="/PerfilUsuario/<%= usuario.id %>" class="btn-ver">Ver</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <% })%>
+                <% } else { %>
+                    <tr>
+                        <td colspan="2">No se encontraron Usuarios</td>
+                    </tr>
+                <% } %>
         </tbody>
     </table>
     <div class="Pages">
@@ -61,3 +69,5 @@
           <% } %>
     </div>
 </div>
+
+<script src="/js/usuario.js"></script>
